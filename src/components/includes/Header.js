@@ -30,7 +30,7 @@ export default function Header(props) {
         <NavLink to="/" main="true">
           LOGO
         </NavLink>
-        <NavLink to="/">RESUME</NavLink>
+        <NavLink to="/recruit">RECRUITMENT</NavLink>
         <NavSearch>
           <Search></Search>
         </NavSearch>

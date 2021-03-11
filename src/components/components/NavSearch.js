@@ -73,8 +73,8 @@ const SearchHeader = styled.div`
 const SearchBar = styled.input`
   width: 0em;
   visibility: ${(props) => (props.toggle === 'block' ? 'visible' : 'hidden')};
-  animation: ${(props) => (props.toggle === 'block' ? InAnimation : '')} 800ms
-    ease-in-out forwards 0ms;
+  animation: ${(props) => (props.toggle === 'block' ? InAnimation : '')} 500ms
+    ease-in forwards 0ms;
   border: none;
   padding: 0 1em 0em;
   font-size: 15px;
@@ -85,7 +85,7 @@ const SearchBar = styled.input`
   @media (max-width: 990px) {
     visibility: ${(props) => (props.toggle === 'block' ? 'visible' : 'hidden')};
     animation: ${(props) => (props.toggle === 'block' ? MdInAnimation : '')}
-      800ms ease-in-out forwards 0ms;
+      500ms ease-in-out forwards 0ms;
   }
 `;
 

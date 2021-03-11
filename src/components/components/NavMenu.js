@@ -77,7 +77,7 @@ export default function NavMenu(props) {
               <DropLink to="/">COMMUNITY</DropLink>
             </DropList>
             <DropList>
-              <DropLink to="/">RESUME</DropLink>
+              <DropLink to="/recruit">RECRUITMENT</DropLink>
             </DropList>
             <hr className="solid" style={{ margin: '10px' }}></hr>
             <DropList>
