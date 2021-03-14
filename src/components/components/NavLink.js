@@ -7,7 +7,7 @@ import * as PropTypes from 'prop-types';
 // props => to:string main:bool
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: #707070;
   font-size: 13px;
   position: relative;
   margin-right: 60px;
@@ -15,7 +15,7 @@ const StyledLink = styled(Link)`
   letter-spacing: 0.15em;
   &:hover {
     text-decoration: none;
-    color: black;
+    color: white;
   }
   @media (max-width: 768px) {
     ${(props) =>
@@ -40,7 +40,7 @@ const StyledLink = styled(Link)`
         height: 2px;
         left: 0;
         bottom: -5px;
-        background-color: black;
+        background-color: #707070;
         transform: scaleX(0);
         transition: all 300ms ease-in-out 0s;
       }
@@ -53,6 +53,7 @@ const StyledLink = styled(Link)`
   ${(props) =>
     props.main &&
     css`
+      font-family: 'Quicksand', sans-serif;
       font-weight: bold;
       font-size: 18px;
     `}

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import Banner from '../components/Banner';
 import RecruitCard from '../components/RecruitCard';
+import Tags from '../components/Tags';
+import Line from '../components/Line';
 
 const RecruitContent = styled.div`
   border-radius: 15px;
@@ -9,7 +11,16 @@ const RecruitContent = styled.div`
 `;
 
 export default function Recruitment(props) {
-  const dummy = () => {
+  const [update, setUpdate] = useState(0);
+  const [tags] = useState([
+    { name: 'backEnd', id: 0, selected: false },
+    { name: 'frontEnd', id: 1, selected: false },
+    { name: 'machineLearning', id: 2, selected: false },
+    { name: 'infra', id: 3, selected: false },
+  ]);
+  // const [tagList, setTagList] = useState([]);
+
+  const dummy = useCallback(() => {
     const dummyData = [];
 
     for (let i = 0; i < 10; i++) {
@@ -17,29 +28,44 @@ export default function Recruitment(props) {
       dummyData[i].title = i + '번 더미 데이터';
       dummyData[i].job = i + '번 더미 데이터 JOB';
       dummyData[i].date = '1999.01.01~2021.06.01';
-      dummyData[i].tag = ['c++', '자바', 'java'];
+      dummyData[i].tag = ['backEnd', 'frontEnd', 'java'];
+      dummyData[i].key = i;
+      dummyData[i].favorite = i % 2 === 1 && true;
     }
     return dummyData;
-  };
+  }, []);
 
-  const dummyOut = dummy().map((temp) => {
+  const [dummyData] = useState(dummy);
+
+  const dummyOut = dummyData.map((temp) => {
     return (
-      <>
+      <div key={temp.key}>
         <RecruitCard
           title={temp.title}
           date={temp.date}
           job={temp.job}
           tags={temp.tag}
+          favorite={temp.favorite}
+          setFav={(fav) => {
+            temp.favorite = fav;
+            setUpdate(update + 1);
+          }}
         ></RecruitCard>
-        <hr className="solid" style={{ margin: '10px' }}></hr>
-      </>
+        <Line margin={'20px'} />
+      </div>
     );
   });
 
   return (
-    <div className="container">
+    <>
       <Banner></Banner>
-      <RecruitContent>{dummyOut}</RecruitContent>
-    </div>
+      <div className="container">
+        <div style={{ textAlign: 'start', marginBottom: '10px' }}>
+          <Tags tagList={tags}>filter</Tags>
+        </div>
+
+        <RecruitContent>{dummyOut}</RecruitContent>
+      </div>
+    </>
   );
 }

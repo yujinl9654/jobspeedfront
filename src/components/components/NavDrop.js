@@ -12,7 +12,12 @@ const NavDropBody = styled.div`
   }
 `;
 
-const NavDropHeader = styled.span``;
+const NavDropHeader = styled.span`
+  color: #707070;
+  &:hover {
+    color: white;
+  }
+`;
 
 const NavDropContent = styled.div`
   background-color: white;
@@ -29,11 +34,11 @@ const NavDropContent = styled.div`
 const DropList = styled.li``;
 
 const DropLink = styled(Link)`
-  color: black;
+  color: #707070;
 
   &:hover {
     text-decoration: none;
-    color: black;
+    color: white;
   }
 `;
 const DropUl = styled.ul`
@@ -50,7 +55,6 @@ export default function NavDrop(props) {
     setToggle(toggle === 'none' ? 'block' : 'none');
   };
   const clickHandler = (e) => {
-    console.log(DropRef.current);
     if (toggle === 'block' && !DropRef.current.contains(e.target))
       setToggle('none');
   };

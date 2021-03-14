@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Quicksand:wght@700&display=swap');
 
 body,html{
   overflow-x: hidden;
@@ -8,6 +9,8 @@ body,html{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .App-logo {

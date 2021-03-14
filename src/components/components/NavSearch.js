@@ -43,10 +43,11 @@ const StyledSearch = styled.div`
   margin-left: 5px;
   margin-right: 20px;
   right: 5em;
+  color: #707070;
   @media (max-width: 990px) {
     right: 0em;
     z-index: 1;
-    background-color: white;
+    background-color: #333333;
     ${(props) =>
       props.toggle === 'block' &&
       css`
@@ -64,6 +65,10 @@ const StyledSearch = styled.div`
 `;
 
 const SearchHeader = styled.div`
+  color: #707070;
+  &:hover {
+    color: white;
+  }
   @media (max-width: 990px) {
     display: block;
   }
@@ -78,6 +83,8 @@ const SearchBar = styled.input`
   border: none;
   padding: 0 1em 0em;
   font-size: 15px;
+  background-color: #333333;
+  color: white;
   &:focus {
     outline: none;
   }

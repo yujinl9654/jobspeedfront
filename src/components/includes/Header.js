@@ -10,6 +10,7 @@ import NavMenu from '../components/NavMenu';
 const NavBar = styled.div`
   height: 60px;
   padding-top: 20px;
+  background-color: #333333;
 `;
 
 const RightContainer = styled.div`

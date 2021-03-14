@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as PropTypes from 'prop-types';
+import { Heart, HeartFill } from 'react-bootstrap-icons';
 
 const AnnounceBody = styled.div`
   position: relative;
-  padding: 40px 100px;
+  padding: 40px 150px;
 `;
 
 const AnnounceTitle = styled.h5`
@@ -12,43 +13,57 @@ const AnnounceTitle = styled.h5`
   font-weight: bolder;
 `;
 
-const AnnounceJob = styled.div`
-  text-align: left;
-`;
-
-const AnnounceDate = styled.div`
-  position: absolute;
-  right: 100px;
-  top: 40px;
-`;
-
 const AnnounceTags = styled.ul`
   list-style: none;
   padding: 0px;
 `;
 
-const AnnounceTageList = styled.li`
+const AnnounceTagList = styled.li`
   text-align: left;
   display: inline;
   float: left;
   margin-right: 10px;
 `;
 
+const AnnounceImg = styled.div`
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  border: 1px solid black;
+  display: inline-block;
+  margin-right: 40px;
+  left: 0px;
+  top: 35px;
+`;
+
+const AnnounceFavorite = styled.div`
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  //border: 1px solid black;
+  right: 0px;
+  bottom: 10px;
+`;
+
 export default function RecruitCard(props) {
   const AnnounceTag = props.tags.map((tags) => {
-    return (
-      <AnnounceTags>
-        <AnnounceTageList>{tags}</AnnounceTageList>
-      </AnnounceTags>
-    );
+    return <AnnounceTagList key={tags}>{tags}</AnnounceTagList>;
   });
 
   return (
     <AnnounceBody>
+      <AnnounceImg></AnnounceImg>
       <AnnounceTitle>{props.title}</AnnounceTitle>
-      <AnnounceJob>{props.job}</AnnounceJob>
-      <AnnounceDate className="text-muted">{props.date}</AnnounceDate>
-      <div>{AnnounceTag}</div>
+      <div>
+        <AnnounceTags>{AnnounceTag}</AnnounceTags>
+      </div>
+      <AnnounceFavorite
+        onClick={() => {
+          props.setFav(!props.favorite);
+        }}
+      >
+        {props.favorite ? <HeartFill /> : <Heart />}
+      </AnnounceFavorite>
     </AnnounceBody>
   );
 }

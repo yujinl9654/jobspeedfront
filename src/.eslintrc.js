@@ -26,5 +26,6 @@ module.exports = {
     'consistent-this': 'off',
     'no-console': 'off',
     'no-alert': 'off',
+    'no-unused-vars': 'warn',
   },
 };

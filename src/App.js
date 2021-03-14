@@ -7,10 +7,9 @@ import Header from './components/includes/Header';
 import Footer from './components/includes/Footer';
 import Home from './components/pages/Home';
 import Recruitment from './components/pages/Recruitment';
+import RecruitmentDetail from './components/pages/RecruitmentDetail';
 
 const Container = styled.div`
-  background-color: #d3d3d3;
-  padding-top: 40px;
   padding-bottom: 40px;
 `;
 
@@ -32,6 +31,11 @@ function App() {
         <Container>
           <Route exact path={'/'} component={Home} />
           <Route exact path={'/recruit'} component={Recruitment} />
+          <Route
+            exact
+            path={'/recruit/recruitDetail'}
+            component={RecruitmentDetail}
+          />
         </Container>
         <Footer></Footer>
       </BrowserRouter>

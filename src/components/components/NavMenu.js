@@ -13,14 +13,18 @@ const NavMenuBody = styled.div`
 `;
 
 const NavMenuHeader = styled.div`
+  color: #707070;
   margin-left: 20px;
+  &:hover {
+    color: white;
+  }
 `;
 
 const NavMenuContent = styled.div`
   position: absolute;
   width: 100vw;
   top: 40px;
-  background-color: white;
+  background-color: #333333;
   z-index: 1;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -34,10 +38,10 @@ const DropList = styled.li`
 
 const DropLink = styled(Link)`
   letter-spacing: 0.15em;
-  color: black;
+  color: #707070;
   &:hover {
     text-decoration: none;
-    color: black;
+    color: white;
   }
 `;
 const DropUl = styled.ul`
@@ -54,7 +58,6 @@ export default function NavMenu(props) {
     setToggle(toggle === 'none' ? 'block' : 'none');
   };
   const clickHandler = (e) => {
-    console.log(MenuRef.current);
     if (toggle === 'block' && !MenuRef.current.contains(e.target))
       setToggle('none');
   };
