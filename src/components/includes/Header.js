@@ -28,7 +28,7 @@ export default function Header(props) {
       <NavBar className="container-fluid">
         <NavLink to="/">COMMUNITY</NavLink>
         <NavLink to="/" main="true">
-          LOGO
+          SPEEDJOBS
         </NavLink>
         <NavLink to="/recruit">RECRUITMENT</NavLink>
         <NavSearch>

@@ -18,12 +18,12 @@ const NavDropContent = styled.div`
   background-color: white;
   z-index: 1;
   position: absolute;
-  border: grey solid 1px;
   top: 55px;
   right: -30px;
   width: 150px;
   border-radius: 15px;
   display: ${(props) => props.toggle};
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const DropList = styled.li``;
