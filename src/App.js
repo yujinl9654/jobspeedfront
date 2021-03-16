@@ -31,11 +31,7 @@ function App() {
         <Container>
           <Route exact path={'/'} component={Home} />
           <Route exact path={'/recruit'} component={Recruitment} />
-          <Route
-            exact
-            path={'/recruit/recruitDetail'}
-            component={RecruitmentDetail}
-          />
+          <Route exact path={'/recruit/detail'} component={RecruitmentDetail} />
         </Container>
         <Footer></Footer>
       </BrowserRouter>
