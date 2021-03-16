@@ -13,6 +13,11 @@ const StyledLink = styled(Link)`
   margin-right: 60px;
   margin-left: 38px;
   letter-spacing: 0.15em;
+  ${(props) =>
+    props.main &&
+    css`
+      color: white;
+    `}
   &:hover {
     text-decoration: none;
     color: white;
