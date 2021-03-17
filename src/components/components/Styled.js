@@ -13,40 +13,48 @@ const StyledButtonInside = styled.div`
   text-align: center;
   letter-spacing: 2px;
   margin: 10px;
+  @media (max-width: 1200px) {
+    width: 100px;
+    font-size: 13px;
+  }
+  @media (max-width: 992px) {
+    width: 70px;
+    font-size: 13px;
+  }
+  ${(props) =>
+    props.sm &&
+    css`
+      width: fit-content;
+      font-size: 13px;
+    `}
   ${(props) =>
     props.top &&
     css`
       position: absolute;
       top: 0px;
-    `}
-  ${(props) =>
+    `} ${(props) =>
     props.bottom &&
     css`
       position: absolute;
       bottom: 0px;
-    `}
-  ${(props) =>
+    `} ${(props) =>
     props.vcenter &&
     css`
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-    `}
-  ${(props) =>
+    `} ${(props) =>
     props.hcenter &&
     css`
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-    `}
-  ${(props) =>
+    `} ${(props) =>
     props.last &&
     css`
       position: absolute;
       right: 0;
-    `}
-  
-  &:hover {
+    `} &:hover {
     background-color: #f2d411;
   }
   //흰색일경우
@@ -65,12 +73,40 @@ const StyledButtonInside = styled.div`
     props.mid &&
     css`
       width: 150px;
+      @media (max-width: 1200px) {
+        width: 120px;
+      }
+      @media (max-width: 992px) {
+        width: 100px;
+      }
     `}
+  
   ${(props) =>
     props.wide &&
     css`
       width: 200px;
+      @media (max-width: 1200px) {
+        width: 150px;
+      }
+      @media (max-width: 992px) {
+        width: 120px;
+      }
     `}
+`;
+
+// 헤더: 모바일 환경에선 보통 헤더이나 태블릿 pc 환경에서는 sticky 로 동작한다
+export const StyledHeaderDiv = styled.div`
+  border-bottom: 1px solid #eee;
+  padding: 20px 10px 20px 0px;
+  background-color: white;
+  z-index: 1;
+  margin-bottom: 10px;
+  position: sticky;
+  top: 60px;
+  //@media (min-width: 768px) {
+  //  position: sticky;
+  //  top: 60px;
+  //}
 `;
 
 export const StyledButton = ({
@@ -83,6 +119,7 @@ export const StyledButton = ({
   white,
   mid,
   wide,
+  sm,
 }) => (
   <StyledButtonInside
     top={top}
@@ -93,11 +130,76 @@ export const StyledButton = ({
     white={white}
     mid={mid}
     wide={wide}
+    sm={sm}
   >
     {children}
   </StyledButtonInside>
 );
-// 흰색버튼 노란버튼과 중복존재
+
+// 태그바디
+
+const TagBodyInside = styled.div`
+  position: relative;
+  //tagType 일경우 드롭다운 박스 색이나옴
+  color: #7c7c7c;
+  background-color: ${(props) => (!props.tagType ? '#f5df4d' : 'white')};
+  ${(props) =>
+    props.grey &&
+    css`
+      background-color: #7c7c7c;
+      color: white;
+    `}
+  ${(props) =>
+    props.tagType &&
+    css`
+      border: #7c7c7c 1px solid;
+      color: black;
+    `};
+  border-radius: 5px;
+  //min-width: 125px;
+  height: 38px;
+  font-size: 15px;
+  user-select: none;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: row;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  vertical-align: middle;
+  width: fit-content;
+  padding: 0px 13px 0px;
+  @media (max-width: 768px) {
+    font-size: 13px;
+    height: 28px;
+  }
+
+  //태그 크기조절 sm
+  ${(props) =>
+    props.sm &&
+    css`
+      height: 25px;
+      font-size: 13px;
+    `}
+`;
+
+export const TagText = styled.div`
+  margin: auto;
+`;
+
+export const TagBody = ({ sm, children, tagType, onClick, grey }) => (
+  <TagBodyInside sm={sm} tagType={tagType} onClick={onClick} grey={grey}>
+    <TagText>{children}</TagText>
+  </TagBodyInside>
+);
+
+// 왼쪽레이아웃 작아질경우 오른쪽 보더 선 삭제
+export const StyledLeftLayout = styled.div`
+  border-right: 1px solid #eee;
+  @media (max-width: 992px) {
+    border: none;
+  }
+`;
 
 export default function Styled(props) {
   return <></>;

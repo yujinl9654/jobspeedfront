@@ -7,7 +7,7 @@ const NavDropBody = styled.div`
   position: absolute;
   display: inline;
   right: 15px;
-  @media (max-width: 990px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;

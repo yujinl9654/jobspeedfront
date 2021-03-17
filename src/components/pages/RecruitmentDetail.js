@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledButton } from '../components/Styled';
+import { StyledButton, StyledHeaderDiv } from '../components/Styled';
 
 export default function RecruitmentDetail(props) {
   return (
@@ -7,45 +7,35 @@ export default function RecruitmentDetail(props) {
       <div
         className={'container'}
         style={{
-          padding: '50px 0px 0px',
+          padding: '30px 0px 0px',
           textAlign: 'left',
         }}
       >
         {/* 제목 지원 찜하기 */}
-        <div
-          className={'row'}
-          style={{
-            borderBottom: '1px solid #7c7c7c',
-            padding: '20px',
-            position: 'sticky',
-            top: '0',
-          }}
-        >
-          <div className={'col-8'}>
-            <h1>더미제목</h1>
+        <StyledHeaderDiv>
+          <div className={'container row justify-content-end'}>
+            <div className={'col-md-8 col-5'}>
+              <h1>더미제목</h1>
+            </div>
+            <div className={'col-md-3 col-4'}>
+              <StyledButton wide>지원</StyledButton>
+            </div>
+            <div className={'col-md-1 col-2'}>
+              <StyledButton white>찜하기</StyledButton>
+            </div>
           </div>
-          <div className={'col-3'}>
-            <StyledButton mid hcenter bottom>
-              지원
-            </StyledButton>
-          </div>
-          <div className={'col-1'}>
-            <StyledButton bottom last white>
-              찜하기
-            </StyledButton>
-          </div>
-        </div>
+        </StyledHeaderDiv>
+
         {/* 제목 end*/}
         {/* 본문*/}
-        <div className={'row'}>
-          <div className={'col-7'}>
+        <div className={'row container m-0 p-0'}>
+          <div className={'col-12 col-lg-7'}>
             {/* 요약정보*/}
             <div
-              className={'row'}
+              className={'container'}
               style={{
                 display: 'block',
-                borderBottom: '1px solid #7c7c7c',
-                padding: '14px',
+                borderBottom: '1px solid #eee',
               }}
             >
               <p>요약</p>
@@ -57,7 +47,7 @@ export default function RecruitmentDetail(props) {
               <p>채용기간 : 상시채용</p>
             </div>
             {/* 업무소개*/}
-            <div className={'row'} style={{ padding: '14px' }}>
+            <div className={'container'} style={{ padding: '14px' }}>
               안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
               안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
               안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
@@ -74,7 +64,10 @@ export default function RecruitmentDetail(props) {
           </div>
           {/* 요약 end*/}
           {/* 채팅컴포넌트*/}
-          <div className={'col-5'} style={{ padding: '15px 5px 0px' }}>
+          <div
+            className={'col-lg-5 col-12'}
+            style={{ padding: '15px 5px 0px' }}
+          >
             <div
               style={{
                 width: '100%',
