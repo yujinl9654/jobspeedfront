@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Modal from '../pages/Modal/Modal';
+import Modal from './Modal/Modal';
 // import { Spinner } from 'react-bootstrap';
 
 const NavDropBody = styled.div`
@@ -68,10 +68,11 @@ export default function NavDrop(props) {
   });
 
   const [visiable, setVisiable] = useState(false);
+  const [login, setLogin] = useState(true);
 
   return (
     <NavDropBody ref={DropRef}>
-      {visiable ? <Modal setVisiable={setVisiable} /> : ''}
+      {visiable ? <Modal setVisiable={setVisiable} login={login} /> : ''}
       <NavDropHeader onClick={() => toggleHandler()}>
         {props.children}
       </NavDropHeader>
@@ -79,13 +80,25 @@ export default function NavDrop(props) {
         {/* <Spinner animation="border" />*/}
         <DropUl>
           <DropList>
-            <DropLink to="/" onClick={() => setVisiable(true)}>
+            <DropLink
+              to="/"
+              onClick={() => {
+                setVisiable(true);
+                setLogin(true);
+              }}
+            >
               Login
             </DropLink>
           </DropList>
           <hr className="solid" style={{ margin: '10px' }}></hr>
           <DropList>
-            <DropLink to="/" onClick={() => setVisiable(true)}>
+            <DropLink
+              to="/"
+              onClick={() => {
+                setVisiable(true);
+                setLogin(false);
+              }}
+            >
               Sign Up
             </DropLink>
           </DropList>

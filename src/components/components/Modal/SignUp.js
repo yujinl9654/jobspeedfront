@@ -10,6 +10,7 @@ const SignForm = styled.div`
   }
   input {
     margin-bottom: 10px;
+    margin-right: 5px;
   }
 `;
 
