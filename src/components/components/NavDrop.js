@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Modal from '../pages/Modal/Modal';
+import Modal from './Modal/Modal';
 // import { Spinner } from 'react-bootstrap';
 
 const NavDropBody = styled.div`
