@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import * as PropTypes from 'prop-types';
 import { Heart, HeartFill } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 
 const AnnounceBody = styled.div`
   position: relative;
@@ -53,7 +54,9 @@ export default function RecruitCard(props) {
   return (
     <AnnounceBody>
       <AnnounceImg></AnnounceImg>
-      <AnnounceTitle>{props.title}</AnnounceTitle>
+      <AnnounceTitle>
+        <Link to={'./recruit/detail'}>{props.title}</Link>
+      </AnnounceTitle>
       <div>
         <AnnounceTags>{AnnounceTag}</AnnounceTags>
       </div>

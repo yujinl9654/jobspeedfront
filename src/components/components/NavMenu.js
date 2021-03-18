@@ -6,7 +6,7 @@ const NavMenuBody = styled.div`
   display: none;
   left: 0px;
   top: 20px;
-  @media (max-width: 990px) {
+  @media (max-width: 1200px) {
     position: absolute;
     display: flex;
   }
@@ -21,11 +21,12 @@ const NavMenuHeader = styled.div`
 `;
 
 const NavMenuContent = styled.div`
-  position: absolute;
-  width: 100vw;
+  position: fixed;
+  width: 100%;
   top: 40px;
+  padding-top: 10px;
   background-color: #333333;
-  z-index: 1;
+  z-index: 2;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   display: ${(props) => props.toggle};
@@ -77,17 +78,25 @@ export default function NavMenu(props) {
         <NavMenuContent toggle={toggle}>
           <DropUl>
             <DropList>
-              <DropLink to="/">COMMUNITY</DropLink>
+              <DropLink to="/community" onClick={() => toggleHandler()}>
+                COMMUNITY
+              </DropLink>
             </DropList>
             <DropList>
-              <DropLink to="/recruit">RECRUITMENT</DropLink>
+              <DropLink to="/recruit" onClick={() => toggleHandler()}>
+                RECRUITMENT
+              </DropLink>
             </DropList>
             <hr className="solid" style={{ margin: '10px' }}></hr>
             <DropList>
-              <DropLink to="/">LOGIN</DropLink>
+              <DropLink to="/" onClick={() => toggleHandler()}>
+                LOGIN
+              </DropLink>
             </DropList>
             <DropList>
-              <DropLink to="/">SIGH UP</DropLink>
+              <DropLink to="/" onClick={() => toggleHandler()}>
+                SIGH UP
+              </DropLink>
             </DropList>
           </DropUl>
         </NavMenuContent>
