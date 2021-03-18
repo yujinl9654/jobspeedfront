@@ -9,6 +9,7 @@ import Home from './components/pages/Home';
 import Recruitment from './components/pages/Recruitment';
 import RecruitmentDetail from './components/pages/RecruitmentDetail';
 import Community from './components/pages/Community';
+import PostDetail from './components/pages/PostDetail';
 
 const Container = styled.div`
   padding-bottom: 40px;
@@ -34,6 +35,7 @@ function App() {
           <Route exact path={'/'} component={Home} />
           <Route exact path={'/recruit'} component={Recruitment} />
           <Route exact path={'/recruit/detail'} component={RecruitmentDetail} />
+          <Route exact path={'/community/post'} component={PostDetail} />
         </Container>
         <Footer></Footer>
       </BrowserRouter>
