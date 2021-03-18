@@ -61,7 +61,7 @@ const Background = styled.div`
 `;
 
 export default function Modal(props) {
-  const [login, setLogin] = useState(true);
+  const [login, setLogin] = useState(props.login);
 
   return (
     <>
