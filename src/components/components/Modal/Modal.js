@@ -52,6 +52,7 @@ const Background = styled.div`
   position: fixed;
   left: 0;
   right: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   background-color: black;
@@ -60,7 +61,7 @@ const Background = styled.div`
 `;
 
 export default function Modal(props) {
-  const [login, setLogin] = useState(true);
+  const [login, setLogin] = useState(props.login);
 
   return (
     <>
