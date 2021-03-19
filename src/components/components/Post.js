@@ -1,4 +1,5 @@
 import { Heart, HeartFill } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { TagBody } from './Styled';
 
@@ -20,7 +21,9 @@ export default function Post({ title, tags, writer, date, fav }) {
           padding: '10px',
         }}
       >
-        <h4 style={{ marginBottom: '30px', marginTop: '10px' }}>{title}</h4>
+        <h4 style={{ marginBottom: '30px', marginTop: '10px' }}>
+          <Link to={'./community/post'}>{title}</Link>
+        </h4>
         {mapTags}
         <div
           style={{

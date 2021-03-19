@@ -1,21 +1,8 @@
-import { Link } from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 import Sns from './Sns';
 import InputLine from './InputLine';
-
-const StyledLink = styled(Link)`
-  font-size: 12px;
-  text-decoration: none;
-  color: #d3d3d3;
-  float: right;
-  margin-bottom: 5px;
-
-  :hover {
-    color: black;
-  }
-`;
 
 export const LogForm = styled.form`
   .buttons {

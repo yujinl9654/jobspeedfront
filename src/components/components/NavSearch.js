@@ -85,6 +85,7 @@ const SearchBar = styled.input`
   font-size: 15px;
   background-color: #333333;
   color: white;
+  text-align: center;
   &:focus {
     outline: none;
   }
