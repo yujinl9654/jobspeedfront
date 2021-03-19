@@ -9,9 +9,13 @@ import NavMenu from '../components/NavMenu';
 
 // 네비바스타일
 const NavBar = styled.div`
+  position: fixed;
+  top: 0px;
   height: 60px;
-  padding-top: 20px;
+  padding: 15px 0px 0px 0px;
   background-color: #333333;
+  z-index: 2;
+  margin: 0px;
 `;
 
 const RightContainer = styled.div`
@@ -29,7 +33,7 @@ export default function Header(props) {
   return (
     <>
       <NavBar className="container-fluid">
-        <NavLink to="/">COMMUNITY</NavLink>
+        <NavLink to="/community">COMMUNITY</NavLink>
         <NavLink to="/" main="true">
           SPEEDJOBS
         </NavLink>

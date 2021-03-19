@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 
 const InAnimation = keyframes`
-  0% {
+  0%{
     width: 10em;
     opacity: 0;
     transform: translateX(0.6em);
   }
-  100% {
+  100%{
     width: 10em;
     opacity: 1;
     transform: translateX(0);
@@ -15,7 +15,7 @@ const InAnimation = keyframes`
 `;
 
 const MdInAnimation = keyframes`
-  0% {
+  0%{
     width: 100%;
     opacity: 1;
     height: 2em;
@@ -24,7 +24,7 @@ const MdInAnimation = keyframes`
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
   }
-  100% {
+  100%{
     width: 100%;
     opacity: 1;
     height: 5em;
@@ -36,15 +36,15 @@ const MdInAnimation = keyframes`
 `;
 
 const StyledSearch = styled.div`
-  position: absolute;
+  position: fixed;
   width: 16px;
   height: 16px;
   top: 20px;
+  right: 4.8em;
   margin-left: 5px;
   margin-right: 20px;
-  right: 5em;
   color: #707070;
-  @media (max-width: 990px) {
+  @media (max-width: 1200px) {
     right: 0em;
     z-index: 1;
     background-color: #333333;
@@ -66,11 +66,9 @@ const StyledSearch = styled.div`
 
 const SearchHeader = styled.div`
   color: #707070;
-
   &:hover {
     color: white;
   }
-
   @media (max-width: 990px) {
     display: block;
   }
@@ -87,7 +85,7 @@ const SearchBar = styled.input`
   font-size: 15px;
   background-color: #333333;
   color: white;
-
+  text-align: center;
   &:focus {
     outline: none;
   }
