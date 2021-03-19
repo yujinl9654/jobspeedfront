@@ -36,15 +36,15 @@ const MdInAnimation = keyframes`
 `;
 
 const StyledSearch = styled.div`
-  position: absolute;
+  position: fixed;
   width: 16px;
   height: 16px;
   top: 20px;
+  right: 4.8em;
   margin-left: 5px;
   margin-right: 20px;
-  right: 5em;
   color: #707070;
-  @media (max-width: 990px) {
+  @media (max-width: 1200px) {
     right: 0em;
     z-index: 1;
     background-color: #333333;
@@ -85,6 +85,7 @@ const SearchBar = styled.input`
   font-size: 15px;
   background-color: #333333;
   color: white;
+  text-align: center;
   &:focus {
     outline: none;
   }
