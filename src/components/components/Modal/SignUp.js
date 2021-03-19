@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 import Sns from './Sns';
@@ -17,6 +17,8 @@ const SignForm = styled.div`
 const SignInput = styled(InputLine)``;
 
 export default function SignUp(props) {
+  const [form, setForm] = useState({ email: '', password: '', name: '' });
+
   return (
     <>
       <SignForm>
