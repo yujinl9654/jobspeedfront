@@ -15,7 +15,7 @@ export const postMember = async (data) => {
 export default function Data(props) {
   return (
     <>
-      <div></div>
+      <div>hello</div>
     </>
   );
 }
