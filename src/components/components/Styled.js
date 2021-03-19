@@ -28,6 +28,12 @@ const StyledButtonInside = styled.div`
       font-size: 13px;
     `}
   ${(props) =>
+    props.first &&
+    css`
+      position: absolute;
+      left: 0px;
+    `}
+  ${(props) =>
     props.top &&
     css`
       position: absolute;
@@ -101,7 +107,7 @@ export const StyledHeaderDiv = styled.div`
   background-color: white;
   z-index: 1;
   margin-bottom: 10px;
-  position: sticky;
+  position: fixed;
   top: 60px;
   //@media (min-width: 768px) {
   //  position: sticky;
@@ -120,6 +126,7 @@ export const StyledButton = ({
   mid,
   wide,
   sm,
+  first,
 }) => (
   <StyledButtonInside
     top={top}
@@ -131,6 +138,7 @@ export const StyledButton = ({
     mid={mid}
     wide={wide}
     sm={sm}
+    first={first}
   >
     {children}
   </StyledButtonInside>
@@ -187,6 +195,48 @@ export const TagText = styled.div`
   margin: auto;
 `;
 
+// 찜박스 메인컨텐츠가 컨테이너일경우 left 값 계산
+// 공간이 충분하지 않을경우 사라지고 충분할경우 다시 생김
+export const StyledLike = styled.div`
+  position: fixed;
+  top: 260px;
+  width: 50px;
+  border-radius: 15px;
+  height: 100px;
+  background-color: white;
+  border: grey 1px solid;
+  display: none;
+
+  @media (min-width: 576px) {
+    display: none;
+  }
+  @media (min-width: 675px) {
+    left: calc((100% - 540px) / 2 - 50px);
+    display: block;
+  }
+  @media (min-width: 768px) {
+    display: none;
+  }
+  @media (min-width: 878px) {
+    left: calc((100% - 720px) / 2 - 60px);
+    display: block;
+  }
+  @media (min-width: 992px) {
+    display: none;
+  }
+  @media (min-width: 1100px) {
+    left: calc((100% - 960px) / 2 - 60px);
+    display: block;
+  }
+  @media (min-width: 1200px) {
+    display: none;
+  }
+
+  @media (min-width: 1300px) {
+    left: calc((100% - 1140px) / 2 - 70px);
+    display: block;
+  }
+`;
 export const TagBody = ({ sm, children, tagType, onClick, grey }) => (
   <TagBodyInside sm={sm} tagType={tagType} onClick={onClick} grey={grey}>
     <TagText>{children}</TagText>
