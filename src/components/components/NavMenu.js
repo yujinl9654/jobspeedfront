@@ -15,6 +15,7 @@ const NavMenuBody = styled.div`
 const NavMenuHeader = styled.div`
   color: #707070;
   margin-left: 20px;
+
   &:hover {
     color: white;
   }
@@ -39,6 +40,7 @@ const DropList = styled.li`
 const DropLink = styled(Link)`
   letter-spacing: 0.15em;
   color: #707070;
+
   &:hover {
     text-decoration: none;
     color: white;

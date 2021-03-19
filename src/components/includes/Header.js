@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Justify, PersonCircle, Search } from 'react-bootstrap-icons';
 import styled from 'styled-components';
 import NavLink from '../components/NavLink';
@@ -18,6 +19,7 @@ const RightContainer = styled.div`
   width: 100%;
   top: 20px;
   right: 8px;
+
   & > * {
     margin: 0px 10px 2px;
   }
@@ -40,7 +42,9 @@ export default function Header(props) {
         </NavMenu>
         <RightContainer>
           <NavDrop>
-            <PersonCircle></PersonCircle>
+            <Link to={'./profile'}>
+              <PersonCircle></PersonCircle>
+            </Link>
           </NavDrop>
         </RightContainer>
       </NavBar>

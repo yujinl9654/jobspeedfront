@@ -13,10 +13,12 @@ const StyledLink = styled(Link)`
   margin-right: 60px;
   margin-left: 38px;
   letter-spacing: 0.15em;
+
   &:hover {
     text-decoration: none;
     color: white;
   }
+
   @media (max-width: 768px) {
     ${(props) =>
       !props.main &&
