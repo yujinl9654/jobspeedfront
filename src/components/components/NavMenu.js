@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Modal from './Modal/Modal';
 
 const NavMenuBody = styled.div`
   display: none;
@@ -69,8 +70,13 @@ export default function NavMenu(props) {
       removeEventListener('click', clickHandler, true);
     };
   });
+
+  const [visible, setVisible] = useState(false);
+  const [login, setLogin] = useState(true);
+
   return (
     <div className="container-fluid">
+      {visible && <Modal login={login} />}
       <NavMenuBody ref={MenuRef}>
         <NavMenuHeader onClick={() => toggleHandler()}>
           {props.children}
@@ -89,12 +95,26 @@ export default function NavMenu(props) {
             </DropList>
             <hr className="solid" style={{ margin: '10px' }}></hr>
             <DropList>
-              <DropLink to="/" onClick={() => toggleHandler()}>
+              <DropLink
+                to="/"
+                onClick={() => {
+                  // toggleHandler();
+                  setVisible(true);
+                  setLogin(true);
+                }}
+              >
                 LOGIN
               </DropLink>
             </DropList>
             <DropList>
-              <DropLink to="/" onClick={() => toggleHandler()}>
+              <DropLink
+                to="/"
+                onClick={() => {
+                  // toggleHandler();
+                  setVisible(true);
+                  setLogin(false);
+                }}
+              >
                 SIGH UP
               </DropLink>
             </DropList>

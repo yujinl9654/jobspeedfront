@@ -1,12 +1,11 @@
-import { Link } from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 import Sns from './Sns';
 import InputLine from './InputLine';
 
-const StyledLink = styled(Link)`
-  font-size: 12px;
+const Forget = styled.p`
+  font-size: 13px;
   text-decoration: none;
   color: #d3d3d3;
   float: right;
@@ -17,13 +16,19 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export const LogForm = styled.form`
+const LogForm = styled.form`
   .buttons {
-    margin-top: 25px;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
+    margin-top: 10px;
   }
+`;
+
+const CanButton = styled.div`
+  @media (max-width: 768px) {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+  }
+  display: none;
 `;
 
 export default function Login(props) {
@@ -32,7 +37,7 @@ export default function Login(props) {
       <LogForm>
         <div className="login">
           <InputLine name="EMAIL" type="text" />
-          {/* <StyledLink to={'/'}>Forget password?</StyledLink>*/}
+          <Forget>Forget password?</Forget>
           <br />
           <InputLine name="PASSWORD" type="password" />
         </div>
@@ -41,9 +46,13 @@ export default function Login(props) {
           <div>
             <input type="checkbox" /> Remember me
           </div>
-          <Button type="submit" name="SIGN IN" />
+          <div style={{ marginTop: '15px' }}>
+            <Button type="submit" name="LOG IN" />
+          </div>
+          <CanButton>
+            <Button name="CANCEL" />
+          </CanButton>
         </div>
-
         <Sns />
       </LogForm>
     </>

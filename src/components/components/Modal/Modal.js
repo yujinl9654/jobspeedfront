@@ -5,6 +5,15 @@ import Login from './Login';
 import SignUp from './SignUp';
 
 const MyComponent = styled.div`
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    left: 0;
+    top: 0;
+    transform: translateX(0);
+    border-radius: 0px;
+  }
   border-radius: 5px;
   position: fixed;
   left: 50%;

@@ -67,12 +67,12 @@ export default function NavDrop(props) {
     };
   });
 
-  const [visiable, setVisiable] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [login, setLogin] = useState(true);
 
   return (
     <NavDropBody ref={DropRef}>
-      {visiable ? <Modal setVisiable={setVisiable} login={login} /> : ''}
+      {visible ? <Modal setVisiable={setVisible} login={login} /> : ''}
       <NavDropHeader onClick={() => toggleHandler()}>
         {props.children}
       </NavDropHeader>
@@ -83,7 +83,7 @@ export default function NavDrop(props) {
             <DropLink
               to="/"
               onClick={() => {
-                setVisiable(true);
+                setVisible(true);
                 setLogin(true);
               }}
             >
@@ -95,7 +95,7 @@ export default function NavDrop(props) {
             <DropLink
               to="/"
               onClick={() => {
-                setVisiable(true);
+                setVisible(true);
                 setLogin(false);
               }}
             >
