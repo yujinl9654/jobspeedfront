@@ -3,6 +3,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MyButton = styled.button`
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   border: 2px solid black;
   border-radius: 5px;
   background-color: white;
