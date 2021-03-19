@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import styled from 'styled-components';
@@ -16,6 +17,14 @@ const Container = styled.div`
 `;
 
 function App() {
+  useEffect(() => {
+    const meta = document.createElement('meta');
+
+    meta.name = 'viewport';
+    meta.content =
+      'width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover';
+    document.getElementsByTagName('head')[0].appendChild(meta);
+  }, []);
   return (
     <div className="App">
       {/* <div className="application">*/}

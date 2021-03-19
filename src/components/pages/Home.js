@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import TitleCards from './home/TitleCards';
 import AnnounceCard from './home/AnnounceCard';
 import Banner from '../components/Banner';
-import { postMember } from '../data/Data';
+// import { postMember } from '../data/Data';
 
 export default function Home(props) {
-  useEffect(() => {
-    postMember();
-  }, []);
+  // useEffect(() => {
+  //   postMember();
+  // }, []);
   return (
     <>
       <Banner></Banner>

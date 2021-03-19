@@ -107,7 +107,7 @@ export const StyledHeaderDiv = styled.div`
   background-color: white;
   z-index: 1;
   margin-bottom: 10px;
-  position: sticky;
+  position: fixed;
   top: 60px;
   //@media (min-width: 768px) {
   //  position: sticky;

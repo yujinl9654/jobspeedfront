@@ -8,7 +8,7 @@ import NavMenu from '../components/NavMenu';
 
 // 네비바스타일
 const NavBar = styled.div`
-  position: sticky;
+  position: fixed;
   top: 0px;
   height: 60px;
   padding: 15px 0px 0px 0px;

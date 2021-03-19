@@ -9,7 +9,7 @@ const MyComponent = styled.div`
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  top: 200px;
+  top: 100px;
   background-color: white;
   width: 330px;
   height: inherit;

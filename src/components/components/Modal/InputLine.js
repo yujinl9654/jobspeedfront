@@ -24,16 +24,23 @@ const MyInput = styled.div`
   }
 `;
 
-export default function InputLine(props) {
+export default function InputLine({ type, value, name, handleChange }) {
   const [bottom, setBottom] = useState(false);
 
   return (
     <>
       <MyInput change={bottom}>
         <label>
-          <b>{props.name}</b>
+          <b>{name}</b>
         </label>
-        <input type={props.type} onChange={() => setBottom(true)} />
+        <input
+          type={type}
+          value={value}
+          onChange={(e) => {
+            setBottom(true);
+            handleChange(e.target.value);
+          }}
+        />
       </MyInput>
     </>
   );
