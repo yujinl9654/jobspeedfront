@@ -37,7 +37,7 @@ export default function Login(props) {
       <LogForm>
         <div className="login">
           <InputLine name="EMAIL" type="text" />
-          <Forget>Forget password?</Forget>
+          <Forget>Forgot password?</Forget>
           <br />
           <InputLine name="PASSWORD" type="password" />
         </div>
