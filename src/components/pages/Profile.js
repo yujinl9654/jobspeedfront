@@ -5,97 +5,47 @@ import {
   StyledHeaderDiv,
   StyledLeftLayout,
 } from '../components/Styled';
+import SideMenu from '../components/SideMenu';
+import ProfileContents from '../components/ProfileContents';
 
-const MyButton = styled.div`
-  border: #707070;
-  height: 50px;
+const ProfileImg = styled.div`
   text-align: center;
-  padding-top: 10px;
-  text-decoration: none;
-  color: black;
+  line-height: 200px;
 `;
+
+const styles = {
+  img: {
+    width: '200px',
+    height: '200px',
+    border: '1px solid black',
+    borderRadius: '50%',
+    margin: '0 auto',
+  },
+};
 
 export default function Profile(props) {
   return (
     <>
       <div className="container text-left">
-        <StyledHeaderDiv>
+        <StyledHeaderDiv style={{ position: 'relative' }}>
           <h1>계정 관리</h1>
           <StyledButton last bottom mid>
             변경 사항 저장
           </StyledButton>
         </StyledHeaderDiv>
-        <div>
+        <div style={{ marginTop: '100px' }}>
           <div className="row justify-content-center">
             <StyledLeftLayout className={'col-12 col-lg-3 text-left'}>
-              <div
-                style={{
-                  width: '180px',
-                  border: '1px solid black',
-                  borderRadius: '27px',
-                }}
-              >
-                <MyButton>
-                  <a href="#" style={{ color: 'black' }}>
-                    login
-                  </a>
-                </MyButton>
-                <MyButton>
-                  <a href="#" style={{ color: 'black' }}>
-                    이력서
-                  </a>
-                </MyButton>
-                <MyButton>
-                  <ul style={{ listStyle: 'none' }}>
-                    <li>
-                      <a href="#" style={{ color: 'black' }}>
-                        보관함
-                      </a>
-                      <ul style={{ listStyle: 'none' }}>
-                        <li>
-                          <a
-                            href="#"
-                            style={{
-                              color: 'black',
-                              fontSize: '14px',
-                            }}
-                          >
-                            채용공고
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            style={{
-                              color: 'black',
-                              fontSize: '14px',
-                            }}
-                          >
-                            게시글
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </MyButton>
-                <MyButton>
-                  <a href="#" style={{ color: 'black' }}>
-                    logout
-                  </a>
-                </MyButton>
-              </div>
+              <SideMenu />
             </StyledLeftLayout>
             <div className={'col-12 col-lg-9'}>
-              프로필프로필프로필프로필프로필프로필프로필프로필
-              프로필프로필프로필프로필프로필프로필프로필프로필
-              프로필프로필프로필프로필프로필프로필프로필프로필
-              프로필프로필프로필프로필프로필프로필프로필프로필
-              프로필프로필프로필프로필프로필프로필프로필프로필
-              프로필프로필프로필프로필프로필프로필프로필프로필
-              프로필프로필프로필프로필프로필프로필프로필프로필
-              프로필프로필프로필프로필프로필프로필프로필프로필
-              프로필프로필프로필프로필프로필프로필프로필프로필
-              프로필프로필프로필프로필프로필프로필프로필프로필
+              <ProfileImg>
+                <img
+                  src="http://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                  style={styles.img}
+                />
+              </ProfileImg>
+              <ProfileContents />
             </div>
           </div>
         </div>

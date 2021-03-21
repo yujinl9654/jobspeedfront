@@ -20,7 +20,7 @@ module.exports = {
   plugins: ['react', 'prettier'],
   rules: {
     'react/prop-types': 'off',
-    'prettier/prettier': 'error',
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'prefer-template': 'off',
     'class-methods-use-this': 'off',
     'consistent-this': 'off',
