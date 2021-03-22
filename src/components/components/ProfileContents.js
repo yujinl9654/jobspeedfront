@@ -22,8 +22,20 @@ const styles = {
     width: '100%',
     borderRadius: '27px',
     border: '2px solid black',
+    resize: 'none',
+  },
+  result: {
+    width: '50px',
+    border: 'none',
+    textAlign: 'right',
   },
 };
+
+function calc() {
+  document.getElementById('result').value = document.getElementById(
+    'content'
+  ).value.length;
+}
 
 export default function ProfileContents(props) {
   const [formData, setFormData] = useState({
@@ -101,7 +113,7 @@ export default function ProfileContents(props) {
         <div>
           <input
             id="inputText"
-            type="text"
+            type="tel"
             style={styles.inputText}
             placeholder="  Tel"
           />
@@ -145,7 +157,29 @@ export default function ProfileContents(props) {
         <div id="spBottom" style={styles.spBottom}>
           <span style={styles.span}>*</span> 한 줄 소개
         </div>
-        <textarea cols="96" rows="3" style={styles.textarea}></textarea>
+        <textarea
+          id="content"
+          cols="96"
+          rows="3"
+          style={styles.textarea}
+          onKeyDown={calc}
+          onKeyUp={calc}
+          onKeyPress={calc}
+        ></textarea>
+        <div
+          style={{
+            textAlign: 'right',
+          }}
+        >
+          <input
+            id="result"
+            type="number"
+            value="0"
+            readOnly
+            style={styles.result}
+          />
+          bytes
+        </div>
       </div>
     </div>
   );
