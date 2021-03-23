@@ -35,6 +35,7 @@ export default function Community(props) {
       writer={post.writer}
       date={post.date}
       fav={post.fav}
+      key={post.title}
     ></Post>
   ));
 

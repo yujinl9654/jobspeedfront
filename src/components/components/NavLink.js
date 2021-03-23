@@ -13,7 +13,7 @@ const StyledLink = styled(Link)`
 
   letter-spacing: 0.15em;
   ${(props) =>
-    props.main &&
+    props.main === 'true' &&
     css`
       color: white;
       margin: 0px 30px 0px 45px;
@@ -24,19 +24,19 @@ const StyledLink = styled(Link)`
   }
   @media (max-width: 1200px) {
     ${(props) =>
-      !props.main &&
+      props.main === 'false' &&
       css`
         display: none;
       `}
     ${(props) =>
-      props.main &&
+      props.main === 'true' &&
       css`
         margin: 0 0 0 0;
       `}
   }
 
   ${(props) =>
-    !props.main &&
+    props.main === 'false' &&
     css`
       &:before {
         content: '';
@@ -56,7 +56,7 @@ const StyledLink = styled(Link)`
     `}
 
   ${(props) =>
-    props.main &&
+    props.main === 'true' &&
     css`
       font-family: 'Quicksand', sans-serif;
       font-weight: bold;

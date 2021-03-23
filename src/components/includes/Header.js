@@ -1,11 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { Justify, PersonCircle, Search } from 'react-bootstrap-icons';
 import styled from 'styled-components';
-import NavLink from '../components/NavLink';
+// import NavLink from '../components/NavLink';
 import NavDrop from '../components/NavDrop';
 import NavSearch from '../components/NavSearch';
 import NavMenu from '../components/NavMenu';
 import PopUp from '../components/Notification/PopUp';
+import MapLink from '../data/mapLink';
 
 // 네비바스타일
 const NavBar = styled.div`
@@ -44,11 +45,7 @@ export default function Header(props) {
   return (
     <>
       <NavBar className="container-fluid">
-        <NavLink to="/community">COMMUNITY</NavLink>
-        <NavLink to="/" main="true">
-          SPEEDJOBS
-        </NavLink>
-        <NavLink to="/recruit">RECRUITMENT</NavLink>
+        <MapLink></MapLink>
         <NavSearch>
           <Search></Search>
         </NavSearch>

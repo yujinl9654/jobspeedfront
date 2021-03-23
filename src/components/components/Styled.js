@@ -7,11 +7,11 @@ const StyledButtonInside = styled.div`
   border: 1px solid #f5df4d;
   border-radius: 5px;
   display: inline-block;
-  padding: 5px 10px 5px;
+  padding: 5px 10px 5px 12px;
   font-weight: bold;
   width: 100px;
-  text-align: center;
   letter-spacing: 2px;
+  text-align: center;
   margin: 10px;
   @media (max-width: 1200px) {
     width: 100px;
@@ -20,6 +20,10 @@ const StyledButtonInside = styled.div`
   @media (max-width: 992px) {
     width: 70px;
     font-size: 13px;
+  }
+  @media (max-width: 500px) {
+    width: 60px;
+    font-size: 11px;
   }
   ${(props) =>
     props.sm &&
@@ -90,29 +94,39 @@ const StyledButtonInside = styled.div`
   ${(props) =>
     props.wide &&
     css`
-      width: 200px;
+      width: 150px;
       @media (max-width: 1200px) {
         width: 150px;
       }
       @media (max-width: 992px) {
         width: 120px;
       }
+      @media (max-width: 500px) {
+        width: 100px;
+        font-size: 11px;
+      }
     `}
 `;
 
 // 헤더: 모바일 환경에선 보통 헤더이나 태블릿 pc 환경에서는 sticky 로 동작한다
+// fixed 로변경
+// Todo 텍스트 수직 중간
 export const StyledHeaderDiv = styled.div`
   border-bottom: 1px solid #eee;
-  padding: 20px 10px 20px 0px;
+  padding: 5px 30px 5px 0px;
   background-color: white;
   z-index: 1;
-  margin-bottom: 10px;
-  position: fixed;
+  margin-bottom: 50px;
+  position: sticky;
   top: 60px;
+  //vertical-align: middle;
   //@media (min-width: 768px) {
   //  position: sticky;
   //  top: 60px;
   //}
+  h1 {
+    font-size: 20px;
+  }
 `;
 
 export const StyledButton = ({
@@ -127,6 +141,7 @@ export const StyledButton = ({
   wide,
   sm,
   first,
+  style,
 }) => (
   <StyledButtonInside
     top={top}
@@ -139,6 +154,7 @@ export const StyledButton = ({
     wide={wide}
     sm={sm}
     first={first}
+    style={style}
   >
     {children}
   </StyledButtonInside>
