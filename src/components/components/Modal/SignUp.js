@@ -1,22 +1,56 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Button from './Button';
 import Sns from './Sns';
 import InputLine from './InputLine';
 import { postMember } from '../../data/Data';
 
-const SignForm = styled.form`
+const SignForm = styled.div`
   Button {
-    margin-top: 15px;
+    margin-top: 10px;
+    @media (max-width: 768px) {
+      background-color: #f5df4d;
+      border: 2px solid #f5df4d;
+      color: white;
+    }
   }
 
   input {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     margin-right: 5px;
   }
+
+  ${(props) =>
+    !props.fade &&
+    css`
+  opacity: 0;
+  animation: fadeSign 500ms;
+  animation-fill-mode: forwards;
+  @keyframes fadeSign {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  `}
 `;
 
 const SignInput = styled(InputLine)``;
+
+const CanButton = styled.div`
+  @media (max-width: 768px) {
+    display: block;
+    Button {
+      background-color: white;
+      border: 2px solid black;
+      color: black;
+    }
+  }
+  display: none;
+`;
 
 export default function SignUp(props) {
   const [form, setForm] = useState({ email: '', password: '', name: '' });
@@ -36,8 +70,16 @@ export default function SignUp(props) {
 
   return (
     <>
-      <SignForm onSubmit={submitHandle}>
-        <div>
+      <SignForm fade={props.fade}>
+        <form onSubmit={submitHandle}>
+          <SignInput
+            name="NAME"
+            value={form.name}
+            type="text"
+            handleChange={(value) => {
+              setForm({ ...form, name: value });
+            }}
+          />
           <SignInput
             name="EMAIL"
             value={form.email}
@@ -63,18 +105,19 @@ export default function SignUp(props) {
             }}
             type="PASSWORD"
           />
-          <SignInput
-            name="NAME"
-            value={form.name}
-            type="text"
-            handleChange={(value) => {
-              setForm({ ...form, name: value });
-            }}
-          />
           <input type="checkbox" />
           Accept all conditions
-          <Button type="submit" name="SING UP" />
-        </div>
+          <div>
+            <Button type="submit" name="SING UP" />
+          </div>
+          <CanButton>
+            <Button
+              type="button"
+              name="CANCEL"
+              onClick={() => props.setClose(false)}
+            />
+          </CanButton>
+        </form>
         <Sns />
       </SignForm>
     </>

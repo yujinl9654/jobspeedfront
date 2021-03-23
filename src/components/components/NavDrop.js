@@ -51,6 +51,18 @@ const DropUl = styled.ul`
   margin: 0px;
 `;
 
+const Background = styled.div`
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.8;
+  z-index: 10;
+`;
+
 export default function NavDrop(props) {
   const [toggle, setToggle] = useState('none');
   const DropRef = useRef();
@@ -69,7 +81,7 @@ export default function NavDrop(props) {
     };
   });
 
-  const [visiable, setVisiable] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [login, setLogin] = useState(true);
   const mapProps = [
     {
@@ -90,7 +102,8 @@ export default function NavDrop(props) {
 
   return (
     <NavDropBody ref={DropRef}>
-      {visiable ? <Modal setVisiable={setVisiable} login={login} /> : ''}
+      {visible && <Modal setVisible={setVisible} login={login} />}
+      {visible && <Background onClick={() => setVisible(false)} />}
       <NavDropHeader onClick={() => toggleHandler()}>
         {props.children}
       </NavDropHeader>

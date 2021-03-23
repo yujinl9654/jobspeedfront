@@ -14,6 +14,8 @@ import PostDetail from './components/pages/PostDetail';
 
 const Container = styled.div`
   padding-bottom: 40px;
+  overflow: hidden;
+  height: 100%;
 `;
 
 function App() {

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Modal from './Modal/Modal';
 import { MapLinkUser, MapMenu } from '../data/mapLink';
 
 const NavMenuBody = styled.div`
@@ -53,6 +54,18 @@ const DropUl = styled.ul`
   margin: 0px;
 `;
 
+const Background = styled.div`
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.8;
+  z-index: 10;
+`;
+
 export default function NavMenu(props) {
   const [toggle, setToggle] = useState('none');
   const MenuRef = useRef();
@@ -98,8 +111,14 @@ export default function NavMenu(props) {
       removeEventListener('click', clickHandler, true);
     };
   });
+
+  const [visible, setVisible] = useState(false);
+  const [login, setLogin] = useState(true);
+
   return (
     <div className="container-fluid">
+      {visible && <Modal login={login} setVisible={setVisible} />}
+      {visible && <Background onClick={() => setVisible(false)} />}
       <NavMenuBody ref={MenuRef}>
         <NavMenuHeader onClick={() => toggleHandler()}>
           {props.children}
