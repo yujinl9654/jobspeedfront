@@ -13,6 +13,7 @@ const MyButton = styled.button`
   padding: 5px 20px;
   font-size: 16px;
   cursor: pointer;
+  transition-duration: 1s;
 
   :hover {
     border: 2px solid #f5df4d;
@@ -24,7 +25,7 @@ const MyButton = styled.button`
 export default function Button(props) {
   return (
     <>
-      <MyButton onClick={props.click}>
+      <MyButton type={props.type} onClick={props.onClick}>
         <b>{props.name}</b>
       </MyButton>
     </>
