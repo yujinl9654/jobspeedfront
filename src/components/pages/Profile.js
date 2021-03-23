@@ -5,8 +5,8 @@ import {
   StyledHeaderDiv,
   StyledLeftLayout,
 } from '../components/Styled';
-import SideMenu from '../components/SideMenu';
-import ProfileContents from '../components/ProfileContents';
+import SideMenu from '../components//SideMenu';
+import ProfileContents from '../components/Profile/ProfileContents';
 
 const ProfileImg = styled.div`
   text-align: center;

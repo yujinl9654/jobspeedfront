@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { DropdownButton, Dropdown } from 'react-bootstrap';
 
 const MyButton = styled.div`
   border: #707070;
@@ -9,12 +10,16 @@ const MyButton = styled.div`
   padding-top: 10px;
 `;
 
+function SelectItem(eventKey) {
+  console.log(eventKey);
+}
+
 export default function SideMenu(props) {
   return (
     <div
       style={{
         width: '180px',
-        border: '1px solid black',
+        border: '1px solid silver',
         borderRadius: '27px',
       }}
     >
@@ -35,12 +40,25 @@ export default function SideMenu(props) {
         </Link>
       </MyButton>
       <MyButton>
-        <Link
-          to={'./보관함'}
-          style={{ color: 'black', textDecoration: 'none' }}
-        >
-          보관함
-        </Link>
+        <Dropdown>
+          <Dropdown.Toggle
+            variant="success"
+            id="dropdown-basic"
+            style={{
+              width: '100%',
+              backgroundColor: 'white',
+              color: 'black',
+              border: 'none',
+            }}
+          >
+            보관함
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item href="#/action-1">채용공고</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">게시글</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </MyButton>
       <MyButton>
         <Link
