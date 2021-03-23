@@ -3,18 +3,7 @@ import ProfileInputs from './ProfileInputs';
 import ProfileGender from './ProfileGender';
 import ProfileInputTel from './ProfileInputTel';
 import ProfileTextarea from './ProfileTextarea';
-
-const styles = {
-  span: {
-    color: 'red',
-  },
-  spBottom: {
-    marginBottom: '15px',
-  },
-  profileBottom: {
-    marginBottom: '40px',
-  },
-};
+import { ProfileItems, ProfileTitles, RequiredItems } from '../Styled';
 
 export default function ProfileContents() {
   return (
@@ -23,26 +12,26 @@ export default function ProfileContents() {
       <ProfileInputs name={'이름'} />
 
       {/* 성별 */}
-      <div id="profileBottom" style={styles.profileBottom}>
-        <div id="spBottom" style={styles.spBottom}>
-          <span style={styles.span}>*</span>&nbsp;&nbsp;성별
-        </div>
+      <ProfileItems>
+        <ProfileTitles>
+          <RequiredItems>*&nbsp;&nbsp;</RequiredItems>성별
+        </ProfileTitles>
         <div>
           <ProfileGender />
         </div>
-      </div>
+      </ProfileItems>
 
       {/* 연락처 */}
-      <div id="profileBottom" style={styles.profileBottom}>
-        <div id="spBottom" style={styles.spBottom}>
-          <span style={styles.span}>*</span>&nbsp;&nbsp;연락처
-        </div>
+      <ProfileItems>
+        <ProfileTitles>
+          <RequiredItems>*&nbsp;&nbsp;</RequiredItems>연락처
+        </ProfileTitles>
         <div>
-          <ProfileInputTel placeholder={'  Tel'} />
-          <ProfileInputTel placeholder={'  Email'} />
-          <ProfileInputTel placeholder={'  GitHub'} />
+          <ProfileInputTel placeholder={'Tel'} />
+          <ProfileInputTel placeholder={'Email'} />
+          <ProfileInputTel placeholder={'GitHub'} />
         </div>
-      </div>
+      </ProfileItems>
       {/* 희망 직군 */}
       <ProfileInputs name={'희망 직군'} />
 

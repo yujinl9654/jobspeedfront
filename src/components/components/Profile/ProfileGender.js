@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
 
-const styles = {
-  checkBoxes: {
-    margin: '0px 10px 15px 10px',
-  },
-};
-
 export default function ProfileInputs() {
   const [formData, setFormData] = useState({
     gender: '',
@@ -23,7 +17,7 @@ export default function ProfileInputs() {
   };
 
   return (
-    <div style={styles.checkBoxes}>
+    <div style={{ margin: '0px 10px 15px 10px' }}>
       <div>
         <input
           type="radio"

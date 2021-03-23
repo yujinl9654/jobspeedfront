@@ -12,6 +12,7 @@ import RecruitmentDetail from './components/pages/RecruitmentDetail';
 import Community from './components/pages/Community';
 import PostDetail from './components/pages/PostDetail';
 import Profile from './components/pages/Profile';
+import Resume from './components/pages/Resume';
 
 const Container = styled.div`
   padding-bottom: 40px;
@@ -39,7 +40,7 @@ function App() {
       {/*  </Helmet>*/}
       {/* </div>*/}
       <BrowserRouter>
-        <Header></Header>
+        <Header />
         <Container>
           <Route exact path={'/community'} component={Community} />
           <Route exact path={'/'} component={Home} />
@@ -47,8 +48,9 @@ function App() {
           <Route exact path={'/recruit/detail'} component={RecruitmentDetail} />
           <Route exact path={'/community/post'} component={PostDetail} />
           <Route exact path={'/profile'} component={Profile} />
+          <Route exact path={'/resume'} component={Resume} />
         </Container>
-        <Footer></Footer>
+        <Footer />
       </BrowserRouter>
     </div>
   );
