@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { MapLinkUser, MapMenu } from '../data/mapLink';
 
 const NavMenuBody = styled.div`
   display: none;
@@ -33,11 +34,11 @@ const NavMenuContent = styled.div`
   border-bottom: black solid 1px;
 `;
 
-const DropList = styled.li`
+export const MenuList = styled.li`
   margin-bottom: 20px;
 `;
 
-const DropLink = styled(Link)`
+export const MenuLink = styled(Link)`
   letter-spacing: 0.15em;
   color: #707070;
   &:hover {
@@ -62,6 +63,34 @@ export default function NavMenu(props) {
     if (toggle === 'block' && !MenuRef.current.contains(e.target))
       setToggle('none');
   };
+  const mapProps = [
+    {
+      title: 'COMMUNITY',
+      onClick: () => {
+        toggleHandler();
+      },
+    },
+    {
+      title: 'RECRUITMENT',
+      onClick: () => {
+        toggleHandler();
+      },
+    },
+  ];
+  const mapPropsUser = [
+    {
+      title: 'Login',
+      onClick: () => {
+        toggleHandler();
+      },
+    },
+    {
+      title: 'Sign Up',
+      onClick: () => {
+        toggleHandler();
+      },
+    },
+  ];
 
   useEffect(() => {
     addEventListener('click', clickHandler, true);
@@ -77,27 +106,9 @@ export default function NavMenu(props) {
         </NavMenuHeader>
         <NavMenuContent toggle={toggle}>
           <DropUl>
-            <DropList>
-              <DropLink to="/community" onClick={() => toggleHandler()}>
-                COMMUNITY
-              </DropLink>
-            </DropList>
-            <DropList>
-              <DropLink to="/recruit" onClick={() => toggleHandler()}>
-                RECRUITMENT
-              </DropLink>
-            </DropList>
+            <MapMenu change={mapProps}></MapMenu>
             <hr className="solid" style={{ margin: '10px' }}></hr>
-            <DropList>
-              <DropLink to="/" onClick={() => toggleHandler()}>
-                LOGIN
-              </DropLink>
-            </DropList>
-            <DropList>
-              <DropLink to="/" onClick={() => toggleHandler()}>
-                SIGH UP
-              </DropLink>
-            </DropList>
+            <MapLinkUser change={mapPropsUser}></MapLinkUser>
           </DropUl>
         </NavMenuContent>
       </NavMenuBody>

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Modal from './Modal/Modal';
+import { MapDrop } from '../data/mapLink';
 // import { Spinner } from 'react-bootstrap';
 
 const NavDropBody = styled.div`
@@ -30,11 +31,12 @@ const NavDropContent = styled.div`
   border-radius: 15px;
   display: ${(props) => props.toggle};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px 0px;
 `;
 
-const DropList = styled.li``;
+export const DropList = styled.li``;
 
-const DropLink = styled(Link)`
+export const DropLink = styled(Link)`
   color: #707070;
 
   &:hover {
@@ -69,6 +71,22 @@ export default function NavDrop(props) {
 
   const [visiable, setVisiable] = useState(false);
   const [login, setLogin] = useState(true);
+  const mapProps = [
+    {
+      title: 'Login',
+      onClick: () => {
+        setVisiable(true);
+        setLogin(true);
+      },
+    },
+    {
+      title: 'Sign Up',
+      onClick: () => {
+        setVisiable(true);
+        setLogin(false);
+      },
+    },
+  ];
 
   return (
     <NavDropBody ref={DropRef}>
@@ -79,29 +97,7 @@ export default function NavDrop(props) {
       <NavDropContent toggle={toggle}>
         {/* <Spinner animation="border" />*/}
         <DropUl>
-          <DropList>
-            <DropLink
-              to="/"
-              onClick={() => {
-                setVisiable(true);
-                setLogin(true);
-              }}
-            >
-              Login
-            </DropLink>
-          </DropList>
-          <hr className="solid" style={{ margin: '10px' }}></hr>
-          <DropList>
-            <DropLink
-              to="/"
-              onClick={() => {
-                setVisiable(true);
-                setLogin(false);
-              }}
-            >
-              Sign Up
-            </DropLink>
-          </DropList>
+          <MapDrop change={mapProps}></MapDrop>
         </DropUl>
       </NavDropContent>
     </NavDropBody>

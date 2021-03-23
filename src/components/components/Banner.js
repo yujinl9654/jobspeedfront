@@ -3,16 +3,16 @@ import styled from 'styled-components';
 import BannerImg from './img/img.png';
 
 const Jumbo = styled.div`
-  left: -1px;
+  left: 0;
   top: 0;
   padding: 0;
 `;
 
 const Img = styled.img`
-  width: 101%;
+  width: 100%;
   height: 100%;
   margin: 0;
-  object-fit: contain;
+  object-fit: cover;
 `;
 
 export default function Banner(props) {

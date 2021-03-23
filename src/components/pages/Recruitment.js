@@ -32,6 +32,9 @@ export default function Recruitment(props) {
       dummyData[i].key = i;
       dummyData[i].favorite = i % 2 === 1 && true;
     }
+    dummyData.push({ title: 'hello' });
+    dummyData.shift();
+    dummyData.shift();
     return dummyData;
   }, []);
 

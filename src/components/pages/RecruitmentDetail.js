@@ -14,13 +14,13 @@ export default function RecruitmentDetail(props) {
         {/* 제목 지원 찜하기 */}
         <StyledHeaderDiv>
           <div className={'container row justify-content-end'}>
-            <div className={'col-md-8 col-5'}>
-              <h1>더미제목</h1>
+            <div className={'col-md-8 col-5'} style={{ marginTop: '14px' }}>
+              <h5>더미제목</h5>
             </div>
-            <div className={'col-md-3 col-4'}>
-              <StyledButton wide>지원</StyledButton>
+            <div className={'col-md-3 col-4 text-right'}>
+              <StyledButton wide>지원하기</StyledButton>
             </div>
-            <div className={'col-md-1 col-2'}>
+            <div className={'col-md-1 col-2 t'}>
               <StyledButton white>찜하기</StyledButton>
             </div>
           </div>
@@ -79,9 +79,9 @@ export default function RecruitmentDetail(props) {
             </div>
           </div>
         </div>
-        <StyledButton hcenter wide>
-          지원
-        </StyledButton>
+        {/* <StyledButton hcenter wide>*/}
+        {/*  지원*/}
+        {/* </StyledButton>*/}
         {/* 본문end*/}
       </div>
     </>

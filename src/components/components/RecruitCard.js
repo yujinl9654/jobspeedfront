@@ -6,12 +6,21 @@ import { Link } from 'react-router-dom';
 
 const AnnounceBody = styled.div`
   position: relative;
-  padding: 40px 150px;
+  padding: 40px 0px 40px 150px;
+  @media (max-width: 400px) {
+    padding: 40px 0px 40px 120px;
+  }
+  @media (max-width: 360px) {
+    font-size: 8px;
+  }
 `;
 
 const AnnounceTitle = styled.h5`
   text-align: left;
   font-weight: bolder;
+  @media (max-width: 360px) {
+    font-size: 12px;
+  }
 `;
 
 const AnnounceTags = styled.ul`
