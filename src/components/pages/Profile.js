@@ -11,7 +11,7 @@ import ProfileContents from '../components/Profile/ProfileContents';
 
 export default function Profile() {
   return (
-    <>
+    <form>
       <div className="container text-left">
         <StyledHeaderDiv style={{ position: 'relative' }}>
           <h1>계정 관리</h1>
@@ -36,6 +36,6 @@ export default function Profile() {
           </div>
         </div>
       </div>
-    </>
+    </form>
   );
 }

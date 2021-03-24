@@ -303,6 +303,34 @@ export const TextAreaLength = styled.input`
   }
 `;
 
+export const TextAreaCombine = ({ cols, rows }) => {
+  function calc() {
+    document.getElementById('result').value = document.getElementById(
+      'content'
+    ).value.length;
+  }
+  return (
+    <div className={'container-fluid'} style={{ padding: '0px 58px 0px 30px' }}>
+      <TextArea
+        id="content"
+        cols={cols}
+        row={rows}
+        onKeyPress={calc}
+        onKeyDown={calc}
+        onKeyUp={calc}
+      ></TextArea>
+      <div style={{ textAlign: 'right' }}>
+        <TextAreaLength
+          id="result"
+          type="number"
+          value="0"
+          readOnly
+        ></TextAreaLength>
+      </div>
+    </div>
+  );
+};
+
 // SideMenu Styled
 export const MyButton = styled.div`
   border: #707070;
