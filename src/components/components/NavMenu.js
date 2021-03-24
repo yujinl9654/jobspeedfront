@@ -95,12 +95,16 @@ export default function NavMenu(props) {
       title: 'Login',
       onClick: () => {
         toggleHandler();
+        setVisible(true);
+        setLogin(true);
       },
     },
     {
       title: 'Sign Up',
       onClick: () => {
         toggleHandler();
+        setVisible(true);
+        setLogin(false);
       },
     },
   ];
@@ -113,7 +117,7 @@ export default function NavMenu(props) {
   });
 
   const [visible, setVisible] = useState(false);
-  const [login] = useState(true);
+  const [login, setLogin] = useState(true);
 
   return (
     <div className="container-fluid">
