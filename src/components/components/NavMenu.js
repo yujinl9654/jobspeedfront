@@ -17,6 +17,7 @@ const NavMenuBody = styled.div`
 const NavMenuHeader = styled.div`
   color: #707070;
   margin-left: 20px;
+
   &:hover {
     color: white;
   }
@@ -42,6 +43,7 @@ export const MenuList = styled.li`
 export const MenuLink = styled(Link)`
   letter-spacing: 0.15em;
   color: #707070;
+
   &:hover {
     text-decoration: none;
     color: white;

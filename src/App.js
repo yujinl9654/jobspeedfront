@@ -11,6 +11,8 @@ import Recruitment from './components/pages/Recruitment';
 import RecruitmentDetail from './components/pages/RecruitmentDetail';
 import Community from './components/pages/Community';
 import PostDetail from './components/pages/PostDetail';
+import Profile from './components/pages/Profile';
+import Resume from './components/pages/Resume';
 
 const Container = styled.div`
   padding-bottom: 40px;
@@ -30,15 +32,17 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header></Header>
+        <Header />
         <Container>
           <Route exact path={'/community'} component={Community} />
           <Route exact path={'/'} component={Home} />
           <Route exact path={'/recruit'} component={Recruitment} />
           <Route exact path={'/recruit/detail'} component={RecruitmentDetail} />
           <Route exact path={'/community/post'} component={PostDetail} />
+          <Route exact path={'/profile'} component={Profile} />
+          <Route exact path={'/resume'} component={Resume} />
         </Container>
-        <Footer></Footer>
+        <Footer />
       </BrowserRouter>
     </div>
   );

@@ -92,6 +92,4 @@ export default function Tags({ tagList, children, sm }) {
   );
 }
 
-Tags.propTypes = {
-  tagList: PropTypes.array,
-};
+Tags.propTypes = { tagList: PropTypes.array };
