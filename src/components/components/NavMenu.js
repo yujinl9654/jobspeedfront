@@ -113,7 +113,7 @@ export default function NavMenu(props) {
   });
 
   const [visible, setVisible] = useState(false);
-  const [login, setLogin] = useState(true);
+  const [login] = useState(true);
 
   return (
     <div className="container-fluid">

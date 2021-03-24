@@ -1,6 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Justify, PersonCircle, Search } from 'react-bootstrap-icons';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { v4 } from 'uuid';
 // import NavLink from '../components/NavLink';
 import NavDrop from '../components/NavDrop';
 import NavSearch from '../components/NavSearch';
@@ -42,6 +44,32 @@ const PopUpBox = styled.div`
 `;
 
 export default function Header(props) {
+  const [popArr, setPopArr] = useState([]);
+  const user = useSelector((state) => state.user);
+  const ref = useRef(0);
+  const mapPop = popArr.map((pop) => (
+    <PopUp key={pop.id} type={pop.type} text={pop.text}></PopUp>
+  ));
+  const addPop = (pop) => {
+    console.log('add');
+    setPopArr((prev) => {
+      ref.current = v4();
+      return prev.concat([{ type: pop.type, id: pop.id }]);
+    });
+    setTimeout(() => {
+      setPopArr((prev) => {
+        prev.shift();
+        console.log('delete');
+        return prev;
+      });
+    }, 3500);
+    console.log(ref.current);
+  };
+
+  useEffect(() => {
+    if (user.signUpDone) addPop({ type: 'sign', id: v4() });
+  }, [user]);
+
   return (
     <>
       <NavBar className="container-fluid">
@@ -57,9 +85,7 @@ export default function Header(props) {
             <PersonCircle></PersonCircle>
           </NavDrop>
         </RightContainer>
-        <PopUpBox>
-          <PopUp />
-        </PopUpBox>
+        <PopUpBox>{mapPop}</PopUpBox>
       </NavBar>
     </>
   );

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled, { css } from 'styled-components';
 import Button from './Button';
 import Sns from './Sns';
 import InputLine from './InputLine';
-import { postMember } from '../../data/Data';
+import { SIGN_UP_REQUEST } from '../../../reducers/user';
 
 const SignForm = styled.div`
   Button {
@@ -53,19 +54,18 @@ const CanButton = styled.div`
 `;
 
 export default function SignUp(props) {
+  const dispatch = useDispatch();
   const [form, setForm] = useState({ email: '', password: '', name: '' });
   const [repeat, setRepeat] = useState('');
 
   const submitHandle = async (e) => {
     e.preventDefault();
     if (repeat !== form.password) alert('비밀번호를 확인해주세요');
-    postMember(form)
-      .then(() => {
-        alert('resolve');
-      })
-      .catch(() => {
-        alert('reject');
-      });
+    dispatch({
+      type: SIGN_UP_REQUEST,
+      data: form,
+    });
+    props.setClose(false);
   };
 
   return (
