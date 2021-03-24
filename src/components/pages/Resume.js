@@ -5,6 +5,13 @@ import {
   StyledHeaderDiv,
   StyledLeftLayout,
   TextAreaCombine,
+  ProfileItems,
+  StyledButton,
+  StyledHeaderDiv,
+  StyledLeftLayout,
+  TextArea,
+  TextAreaCombine,
+  TextAreaLength,
 } from '../components/Styled';
 import SideMenu from '../components/SideMenu';
 import ResumeInputs from '../components/resume/ResumeInputs';

@@ -263,11 +263,13 @@ export const TagBody = ({ sm, children, tagType, onClick, grey }) => (
 // 왼쪽레이아웃 작아질경우 오른쪽 보더 선 삭제
 export const StyledLeftLayout = styled.div`
   border-right: 1px solid #eee;
+  //border-right: 1px solid #eee;
   @media (max-width: 992px) {
     border: none;
   }
 `;
 
+// Profile Styled
 export default function Styled(props) {
   return <></>;
 }

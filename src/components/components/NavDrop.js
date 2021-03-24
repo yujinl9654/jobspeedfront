@@ -16,6 +16,7 @@ const NavDropBody = styled.div`
 
 const NavDropHeader = styled.span`
   color: #707070;
+
   &:hover {
     color: white;
   }

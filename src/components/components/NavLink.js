@@ -12,6 +12,7 @@ const StyledLink = styled(Link)`
   position: relative;
 
   letter-spacing: 0.15em;
+
   ${(props) =>
     props.main === 'true' &&
     css`
@@ -22,6 +23,7 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     color: white;
   }
+
   @media (max-width: 1200px) {
     ${(props) =>
       props.main === 'false' &&

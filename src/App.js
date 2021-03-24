@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header></Header>
+        <Header />
         <Container>
           <Route exact path={'/community'} component={Community} />
           <Route exact path={'/'} component={Home} />
@@ -42,7 +42,7 @@ function App() {
           <Route exact path={'/profile'} component={Profile} />
           <Route exact path={'/resume'} component={Resume} />
         </Container>
-        <Footer></Footer>
+        <Footer />
       </BrowserRouter>
     </div>
   );
