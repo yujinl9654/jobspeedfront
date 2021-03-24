@@ -5,13 +5,6 @@ import {
   StyledHeaderDiv,
   StyledLeftLayout,
   TextAreaCombine,
-  ProfileItems,
-  StyledButton,
-  StyledHeaderDiv,
-  StyledLeftLayout,
-  TextArea,
-  TextAreaCombine,
-  TextAreaLength,
 } from '../components/Styled';
 import SideMenu from '../components/SideMenu';
 import ResumeInputs from '../components/resume/ResumeInputs';
@@ -55,21 +48,6 @@ const MyEducation = styled.div`
 const EducationItems = styled.div`
   padding-left: 30px;
 `;
-
-const ResumeTextArea = styled.textarea`
-  width: 780px;
-  border-radius: 27px;
-  border: 1px solid silver;
-  resize: none;
-  padding: 10px 20px 3px;
-  margin-left: 30px;
-`;
-
-function calc() {
-  document.getElementById('result').value = document.getElementById(
-    'content'
-  ).value.length;
-}
 
 export default function Resume(props) {
   return (
