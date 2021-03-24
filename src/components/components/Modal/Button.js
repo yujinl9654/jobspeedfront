@@ -14,7 +14,6 @@ const MyButton = styled.button`
   font-size: 16px;
   cursor: pointer;
   transition-duration: 1s;
-
   :hover {
     border: 2px solid #f5df4d;
     background-color: #f5df4d;
