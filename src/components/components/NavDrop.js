@@ -87,14 +87,14 @@ export default function NavDrop(props) {
     {
       title: 'Login',
       onClick: () => {
-        setVisiable(true);
+        setVisible(true);
         setLogin(true);
       },
     },
     {
       title: 'Sign Up',
       onClick: () => {
-        setVisiable(true);
+        setVisible(true);
         setLogin(false);
       },
     },

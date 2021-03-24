@@ -14,10 +14,11 @@ const Alert = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5df4d;
+  color: ${(props) => props.color};
+  background-color: ${(props) => props.backColor};
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+  margin-bottom: 10px;
   animation: Bye 500ms linear 3s;
   animation-fill-mode: forwards;
 
@@ -43,11 +44,34 @@ const CheckMark = styled(Check)`
   height: 25px;
 `;
 
-export default function PopUp(props) {
+export default function PopUp({ type, text }) {
+  const typeArr = {
+    warn: {
+      backColor: 'red',
+      color: 'white',
+      text: '오류가 발생하였습니다',
+    },
+    post: {
+      backColor: '#f5df4d',
+      color: '#7c7c7c',
+      text: '게시글이 등록되었습니다',
+    },
+    sign: {
+      backColor: 'green',
+      color: 'white',
+      text: '회원가입이 완료되었습니다',
+    },
+    default: {
+      backColor: '#f5df4d',
+      color: '#7c7c7c',
+      text,
+    },
+  };
+
   return (
     <>
-      <Alert>
-        <p>게시글이 등록되었습니다.</p> <CheckMark />
+      <Alert color={typeArr[type].color} backColor={typeArr[type].backColor}>
+        <p>{typeArr[type].text}</p> <CheckMark />
       </Alert>
     </>
   );
