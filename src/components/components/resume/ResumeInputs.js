@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { InputText, RequiredItems } from '../Styled';
 
 const ResumeItems = styled.div`
   margin-bottom: 5px;
@@ -17,6 +16,7 @@ const InputTextResume = styled.input`
   margin-bottom: 5px;
   border: 1px solid silver;
   padding: 0 20px 3px;
+
   ${(props) =>
     props.wide &&
     css`
