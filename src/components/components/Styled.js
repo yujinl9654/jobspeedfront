@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 // 버튼 컬러로 노란색 흰색 지정가능
 const StyledButtonInside = styled.div`
   color: #7c7c7c;
@@ -262,11 +263,131 @@ export const TagBody = ({ sm, children, tagType, onClick, grey }) => (
 // 왼쪽레이아웃 작아질경우 오른쪽 보더 선 삭제
 export const StyledLeftLayout = styled.div`
   border-right: 1px solid #eee;
+  //border-right: 1px solid #eee;
   @media (max-width: 992px) {
     border: none;
   }
 `;
 
+// Profile Styled
 export default function Styled(props) {
   return <></>;
 }
+
+// Profile Styled
+export const ProfileItems = styled.div`
+  margin-bottom: 40px;
+`;
+export const ProfileTitles = styled.div`
+  margin-bottom: 15px;
+`;
+export const RequiredItems = styled.span`
+  color: red;
+`;
+export const InputText = styled.input`
+  width: 100%;
+  height: 35px;
+  border-radius: 27px;
+  margin-bottom: 10px;
+  border: 1px solid silver;
+  padding: 0 20px 3px;
+
+  &:focus {
+    outline: none;
+  }
+`;
+export const TextArea = styled.textarea`
+  width: 100%;
+  border-radius: 27px;
+  border: 1px solid silver;
+  resize: none;
+  padding: 10px 20px 3px;
+
+  &:focus {
+    outline: none;
+  }
+`;
+export const TextAreaLength = styled.input`
+  position: relative;
+  top: -40px;
+  right: 10px;
+  width: 45px;
+  border: none;
+  text-align: right;
+  background-color: rgba(0, 0, 0, 0);
+  color: silver;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const TextAreaCombine = ({ cols, rows }) => {
+  function calc() {
+    document.getElementById('result').value = document.getElementById(
+      'content'
+    ).value.length;
+  }
+  return (
+    <div className={'container-fluid'} style={{ padding: '0px 58px 0px 30px' }}>
+      <TextArea
+        id="content"
+        cols={cols}
+        row={rows}
+        onKeyPress={calc}
+        onKeyDown={calc}
+        onKeyUp={calc}
+      ></TextArea>
+      <div style={{ textAlign: 'right' }}>
+        <TextAreaLength
+          id="result"
+          type="number"
+          value="0"
+          readOnly
+        ></TextAreaLength>
+      </div>
+    </div>
+  );
+};
+
+// SideMenu Styled
+export const MyButton = styled.div`
+  border: #707070;
+  height: 50px;
+  text-align: center;
+  padding-top: 10px;
+`;
+
+export const MyLink = styled(Link)`
+  color: #8c8c8c;
+  text-decoration: none;
+
+  &:hover {
+    color: black;
+  }
+`;
+
+export const MySideMenu = styled.div`
+  margin-top: 50px;
+  width: 150px;
+  border: 0.5px solid silver;
+  border-radius: 10px;
+  padding: 15px 15px;
+`;
+
+export const MyHr = styled.hr`
+  margin: 8px 0px;
+`;
+
+// Profile Image
+export const ProfileImg = styled.div`
+  text-align: center;
+  line-height: 200px;
+`;
+export const MyImage = styled.img`
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin: 0 auto;
+`;
