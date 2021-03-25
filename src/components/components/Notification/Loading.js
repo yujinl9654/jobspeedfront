@@ -14,7 +14,7 @@ const Load = styled.div`
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  display: block;
+  display: inline-block;
   animation: zooming 5s ease-in-out infinite;
 
   @keyframes zooming {
