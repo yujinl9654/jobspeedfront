@@ -1,5 +1,5 @@
 import { css } from 'styled-components/dist/styled-components.browser.esm';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Login from './Login';
 import SignUp from './SignUp';
@@ -8,7 +8,7 @@ import Loading from '../Notification/Loading';
 const MyComponent = styled.div`
   @media (max-width: 768px) {
     width: 100%;
-    height: 100%;
+    height: 120%;
     margin: 0;
     left: 0;
     top: 0;
@@ -36,6 +36,10 @@ const MyComponent = styled.div`
       css`
         visibility: hidden;
       `}
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 `;
 
@@ -95,6 +99,13 @@ const GoTo = styled.h3`
 export default function Modal(props) {
   const [login, setLogin] = useState(props.login);
   const [view, setView] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  });
 
   return (
     <>
