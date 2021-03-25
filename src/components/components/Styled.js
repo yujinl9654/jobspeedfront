@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 // 버튼 컬러로 노란색 흰색 지정가능
@@ -22,9 +22,9 @@ const StyledButtonInside = styled.div`
     width: 70px;
     font-size: 13px;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 576px) {
     width: 60px;
-    font-size: 11px;
+    font-size: 10px;
   }
   ${(props) =>
     props.sm &&
@@ -102,7 +102,7 @@ const StyledButtonInside = styled.div`
       @media (max-width: 992px) {
         width: 120px;
       }
-      @media (max-width: 500px) {
+      @media (max-width: 576px) {
         width: 100px;
         font-size: 11px;
       }
@@ -291,6 +291,7 @@ const StyledLeftLayoutInside = styled.div`
   //border-right: 1px solid #eee;
   @media (max-width: 992px) {
     border: none;
+    display: none;
   }
   ${(props) =>
     props.borderNone &&
@@ -359,17 +360,27 @@ export const TextAreaLength = styled.input`
 `;
 
 export const TextAreaCombine = ({ cols, rows }) => {
+  const [textLength, setTextLength] = useState('');
+  const [result, setResult] = useState(0);
+
   function calc() {
-    document.getElementById('result').value = document.getElementById(
-      'content'
-    ).value.length;
+    setResult(textLength.length);
   }
+
+  const onChangeHandler = (e) => {
+    if (e.target.value.length <= 500) {
+      setTextLength(e.target.value);
+    } else alert('500자 이내로 작성해주세요');
+  };
+
   return (
     <div className={'container-fluid'} style={{ padding: '0px 58px 0px 30px' }}>
       <TextArea
         id="content"
         cols={cols}
-        row={rows}
+        rows={rows}
+        value={textLength}
+        onChange={(e) => onChangeHandler(e)}
         onKeyPress={calc}
         onKeyDown={calc}
         onKeyUp={calc}
@@ -378,7 +389,7 @@ export const TextAreaCombine = ({ cols, rows }) => {
         <TextAreaLength
           id="result"
           type="number"
-          value="0"
+          value={result}
           readOnly
         ></TextAreaLength>
       </div>
@@ -411,6 +422,9 @@ export const MySideMenu = styled.div`
   border-radius: 10px;
   padding: 15px 15px;
   z-index: 1;
+  @media (max-width: 992px) {
+    display: none;
+  }
 `;
 
 export const MyHr = styled.hr`
@@ -429,11 +443,16 @@ export const MyImage = styled.img`
   border-radius: 50%;
   margin: 0 auto;
 `;
-
 export const CenterConatainer = styled.div`
   min-width: 320px;
   max-width: 544px;
   border: 1px solid #d3d3d3;
   border-radius: 15px;
   margin-top: 100px;
+`;
+export const StyledArticle = styled.div`
+  padding-left: 60px;
+  @media (max-width: 992px) {
+    padding-left: 0px;
+  }
 `;
