@@ -60,7 +60,7 @@ export default function Community(props) {
                 height: '60px',
               }}
             >
-              <TagBody tagType>조회순</TagBody>
+              {/* <TagBody tagType>조회순</TagBody>*/}
             </div>
             {mapPost}
           </div>

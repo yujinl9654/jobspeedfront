@@ -42,7 +42,7 @@ export const DropLink = styled(Link)`
 
   &:hover {
     text-decoration: none;
-    color: white;
+    color: black;
   }
 `;
 const DropUl = styled.ul`

@@ -17,7 +17,7 @@ import LikeList from './components/pages/LikeList';
 
 const Container = styled.div`
   padding-bottom: 40px;
-  overflow: hidden;
+  //overflow: hidden;
   height: 100%;
 `;
 

@@ -11,7 +11,7 @@ const Links = [
 const DropLinks = [
   { title: 'Login', to: '/' },
   { title: 'Sign Up', to: '/' },
-  { title: 'Profile', to: '/' },
+  { title: 'Profile', to: '/profile' },
 ];
 
 export const mappedLinkUser = (change) => {
