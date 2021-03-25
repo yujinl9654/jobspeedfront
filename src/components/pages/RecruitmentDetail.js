@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyledButton, StyledHeaderDiv } from '../components/Styled';
 
 export default function RecruitmentDetail(props) {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <>
       <div
@@ -14,13 +17,13 @@ export default function RecruitmentDetail(props) {
         {/* 제목 지원 찜하기 */}
         <StyledHeaderDiv>
           <div className={'container row justify-content-end'}>
-            <div className={'col-md-8 col-5'} style={{ marginTop: '14px' }}>
+            <div className={'col-md-8 col-4 p-0'} style={{ marginTop: '14px' }}>
               <h5>더미제목</h5>
             </div>
             <div className={'col-md-3 col-4 text-right'}>
               <StyledButton wide>지원하기</StyledButton>
             </div>
-            <div className={'col-md-1 col-2 t'}>
+            <div className={'col-md-1 col-3 text-right'}>
               <StyledButton white>찜하기</StyledButton>
             </div>
           </div>

@@ -59,7 +59,7 @@ export default function PopUp({ type, text }) {
     sign: {
       backColor: 'green',
       color: 'white',
-      text: '회원가입이 완료되었습니다',
+      text: '이메일을 확인해주세요',
     },
     default: {
       backColor: '#f5df4d',

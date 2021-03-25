@@ -1,6 +1,6 @@
 import React from 'react';
 import RegisterInput from './RegisterInput';
-import { ProfileItems, StyledButton } from '../Styled';
+import { StyledButton } from '../Styled';
 
 export default function RegisterContents(props) {
   return (

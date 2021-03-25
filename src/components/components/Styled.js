@@ -14,6 +14,8 @@ const StyledButtonInside = styled.div`
   letter-spacing: 2px;
   text-align: center;
   margin: 10px;
+  cursor: pointer;
+  user-select: none;
   @media (max-width: 1200px) {
     width: 100px;
     font-size: 13px;
@@ -114,7 +116,7 @@ const StyledButtonInside = styled.div`
 // Todo 텍스트 수직 중간
 export const StyledHeaderDivInside = styled.div`
   //border-bottom: 1px solid #eee;
-  padding: 40px 0px 5px 0px;
+  padding: 20px 0px 5px 0px;
   background-color: white;
   z-index: 1;
   margin-bottom: 50px;
@@ -128,20 +130,23 @@ export const StyledHeaderDivInside = styled.div`
   h1 {
     font-size: 20px;
   }
+  @media (max-width: 992px) {
+    padding: 5px 0px 0px 0px;
+  }
 
   ${(props) =>
     props.padding &&
     css`
-      padding-left: 230px;
+      padding: 40px 0px 0px 230px;
       @media (max-width: 992px) {
         padding-left: 0px;
       }
     `}
 `;
 
-export const StyledHeaderDiv = ({ children, padding, center }) => (
+export const StyledHeaderDiv = ({ children, padding }) => (
   <>
-    <StyledHeaderDivInside padding={padding} center={center}>
+    <StyledHeaderDivInside padding={padding}>
       <div style={{ borderBottom: '1px solid #eee ', paddingBottom: '20px' }}>
         {children}
       </div>
@@ -162,6 +167,7 @@ export const StyledButton = ({
   sm,
   first,
   style,
+  onClick,
 }) => (
   <StyledButtonInside
     top={top}
@@ -175,6 +181,7 @@ export const StyledButton = ({
     sm={sm}
     first={first}
     style={style}
+    onClick={onClick}
   >
     {children}
   </StyledButtonInside>

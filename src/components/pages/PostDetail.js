@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   StyledButton,
   StyledHeaderDiv,
@@ -7,6 +7,9 @@ import {
 } from '../components/Styled';
 
 export default function PostDetail(props) {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <>
       <div
@@ -19,7 +22,7 @@ export default function PostDetail(props) {
         {/* 헤더*/}
         <StyledHeaderDiv>
           <div className={'container row justify-content-end'}>
-            <div className={'col-md-8 col-5'} style={{ marginTop: '14px' }}>
+            <div className={'col-md-8 col-4 p-0'} style={{ marginTop: '14px' }}>
               <h5>더미제목</h5>
             </div>
             <div className={'col-md-3 col-4 text-right'}>
@@ -30,7 +33,7 @@ export default function PostDetail(props) {
                 목록
               </StyledButton>
             </div>
-            <div className={'col-md-1 col-2'}>
+            <div className={'col-md-1 col-3 text-right'}>
               <StyledButton white>찜하기</StyledButton>
             </div>
           </div>

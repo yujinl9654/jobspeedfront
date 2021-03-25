@@ -4,7 +4,6 @@ import {
   StyledHeaderDiv,
   StyledLeftLayout,
 } from '../components/Styled';
-import Post from '../components/Post';
 import SideMenu from '../components/SideMenu';
 import RecruitCard from '../components/RecruitCard';
 import Line from '../components/Line';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   MyImage,
   ProfileImg,
@@ -11,6 +11,9 @@ import SideMenu from '../components/SideMenu';
 import ProfileContents from '../components/Profile/ProfileContents';
 
 export default function Profile() {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <form>
       <div className="container text-left">

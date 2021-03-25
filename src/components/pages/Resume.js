@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {
   StyledButton,
@@ -61,6 +61,10 @@ const CareerItems = styled.div`
 `;
 
 export default function Resume(props) {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   const [tags] = useState([
     { name: '#C', id: 0, selected: false },
     { name: '#C++', id: 1, selected: false },

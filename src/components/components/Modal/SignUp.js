@@ -4,8 +4,7 @@ import styled, { css } from 'styled-components';
 import Button from './Button';
 import Sns from './Sns';
 import InputLine from './InputLine';
-import { SIGN_UP_REQUEST } from '../../../reducers/user';
-import { MyLink } from '../Styled';
+import { SIGN_UP_SUCCESS } from '../../../reducers/user';
 
 const SignForm = styled.div`
   Button {
@@ -63,7 +62,7 @@ export default function SignUp(props) {
     e.preventDefault();
     if (repeat !== form.password) alert('비밀번호를 확인해주세요');
     dispatch({
-      type: SIGN_UP_REQUEST,
+      type: SIGN_UP_SUCCESS,
       data: form,
     });
     props.setClose(false);
@@ -111,7 +110,6 @@ export default function SignUp(props) {
           <div>
             <Button type="submit" name="SING UP" />
           </div>
-          {/* <Button type="button" name="기업회원가입" />*/}
           <CanButton>
             <Button
               type="button"
