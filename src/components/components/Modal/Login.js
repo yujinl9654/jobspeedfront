@@ -86,7 +86,7 @@ export default function Login(props) {
             />
           </CanButton>
         </div>
-        <Sns />
+        <Sns setSns={props.setSns} />
       </LogForm>
     </>
   );

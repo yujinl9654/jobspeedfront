@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
-import Banner from '../components/Banner';
+import SideMenu from '../components/SideMenu';
+import {
+  StyledButton,
+  StyledHeaderDiv,
+  StyledLeftLayout,
+  TagBody,
+} from '../components/Styled';
 import Tags from '../components/Tags';
-import { StyledLeftLayout, TagBody } from '../components/Styled';
 import Post from '../components/Post';
 
-export default function Community(props) {
+export default function LikeList(props) {
   const [tags] = useState([
     { name: 'backEnd', id: 0, selected: false },
     { name: 'frontEnd', id: 1, selected: false },
     { name: 'machineLearning', id: 2, selected: false },
     { name: 'infra', id: 3, selected: false },
   ]);
+
   const dummy = () => {
     const dummyArr = [];
 
@@ -41,8 +47,13 @@ export default function Community(props) {
 
   return (
     <>
-      <Banner />
       <div className={'container'}>
+        <StyledHeaderDiv>
+          <h1>이력서</h1>
+          <StyledButton last bottom>
+            수정
+          </StyledButton>
+        </StyledHeaderDiv>
         {/* 레이아웃 구분선*/}
         <div className={'row justify-content-center'}>
           {/* 태그 레이아웃 */}
@@ -60,7 +71,7 @@ export default function Community(props) {
                 height: '60px',
               }}
             >
-              {/* <TagBody tagType>조회순</TagBody>*/}
+              <TagBody tagType>조회순</TagBody>
             </div>
             {mapPost}
           </div>
