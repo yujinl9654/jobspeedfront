@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Login from './Login';
 import SignUp from './SignUp';
+import Loading from '../Notification/Loading';
 
 const MyComponent = styled.div`
   @media (max-width: 768px) {
@@ -28,6 +29,14 @@ const MyComponent = styled.div`
   padding: 40px 45px;
   text-align: left;
   //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  .forms {
+    ${(props) =>
+      props.view &&
+      css`
+        visibility: hidden;
+      `}
+  }
 `;
 
 const Title = styled.div`
@@ -85,10 +94,11 @@ const GoTo = styled.h3`
 
 export default function Modal(props) {
   const [login, setLogin] = useState(props.login);
+  const [view, setView] = useState(false);
 
   return (
     <>
-      <MyComponent>
+      <MyComponent view={view}>
         <Title login={login}>
           <GoTo className="log" onClick={() => setLogin(true)}>
             LOG IN
@@ -97,13 +107,15 @@ export default function Modal(props) {
             SIGN UP
           </GoTo>
         </Title>
+
         <div className="forms">
           {login ? (
-            <Login setClose={props.setVisible} fade={login} />
+            <Login setClose={props.setVisible} fade={login} setSns={setView} />
           ) : (
             <SignUp setClose={props.setVisible} fade={login} />
           )}
         </div>
+        {view && <Loading />}
       </MyComponent>
     </>
   );
