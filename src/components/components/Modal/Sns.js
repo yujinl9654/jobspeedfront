@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Facebook, Google, Linkedin, Twitter } from 'react-bootstrap-icons';
 
@@ -41,7 +41,7 @@ export default function Sns(props) {
       <MySns>
         <hr />
         <div className="logo">
-          <Google />
+          <Google onClick={() => props.setSns(true)} />
           <Facebook />
           <Linkedin />
           <Twitter />
