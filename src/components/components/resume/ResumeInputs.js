@@ -13,22 +13,35 @@ const InputTextResume = styled.input`
   width: 200px;
   height: 35px;
   border-radius: 27px;
-  margin-bottom: 5px;
   border: 1px solid silver;
   padding: 0 20px 3px;
+  margin: 0 10px 5px 0;
 
   ${(props) =>
     props.wide &&
     css`
-      width: 100%;
+      width: 790px;
     `}
   ${(props) =>
     props.small &&
     css`
-      width: 380px;
+      width: 360px;
     `}
   &:focus {
     outline: none;
+  }
+
+  @media (max-width: 992px) {
+    ${(props) =>
+      props.wide &&
+      css`
+        width: 700px;
+      `}
+    ${(props) =>
+      props.small &&
+      css`
+        width: 300px;
+      `}
   }
 `;
 

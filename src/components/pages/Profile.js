@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import {
   MyImage,
   ProfileImg,
+  StyledArticle,
   StyledButton,
   StyledHeaderDiv,
   StyledLeftLayout,
@@ -37,7 +38,10 @@ export default function Profile() {
             >
               <SideMenu />
             </StyledLeftLayout>
-            <div className={'col-12 col-lg-10'} style={{ paddingLeft: '60px' }}>
+            <StyledArticle
+              className={'col-12 col-lg-10'}
+              style={{ paddingLeft: '60px' }}
+            >
               <ProfileImg>
                 <MyImage
                   src="http://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
@@ -45,7 +49,7 @@ export default function Profile() {
                 />
               </ProfileImg>
               <ProfileContents />
-            </div>
+            </StyledArticle>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {
   StyledButton,
@@ -8,6 +8,7 @@ import {
 } from '../components/Styled';
 import SideMenu from '../components/SideMenu';
 import ResumeInputs from '../components/resume/ResumeInputs';
+import Tags from '../components/Tags';
 
 const ResumeTitle = styled.div`
   margin-bottom: 15px;
@@ -19,6 +20,9 @@ const Warning = styled.span`
   font-size: 13px;
   font-weight: bold;
   letter-spacing: -1px;
+  @media (max-width: 992px) {
+    font-size: 10px;
+  }
 `;
 
 const Private = styled.span`
@@ -37,6 +41,9 @@ const ResumeImg = styled.div`
   line-height: 200px;
   margin-top: 12px;
   margin-left: 30px;
+  @media (max-width: 992px) {
+    margin: 0;
+  }
 `;
 
 const MyEducation = styled.div`
@@ -49,27 +56,53 @@ const EducationItems = styled.div`
   padding-left: 30px;
 `;
 
+const CareerItems = styled.div`
+  padding-left: 30px;
+`;
+
 export default function Resume(props) {
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
+
+  const [tags] = useState([
+    { name: '#C', id: 0, selected: false },
+    { name: '#C++', id: 1, selected: false },
+    { name: '#JAVA', id: 2, selected: false },
+    { name: '#Python', id: 3, selected: false },
+  ]);
+
   return (
     <form>
       <div className="container text-left">
         <StyledHeaderDiv padding style={{ position: 'relative' }}>
-          <hee1>이력서</hee1>
-          <StyledButton last bottom>
-            수정
-          </StyledButton>
+          <div className={'container row justify-content-end'}>
+            <div
+              className={'col-md-9 col-8'}
+              style={{ marginTop: '14px', paddingTop: '5px' }}
+            >
+              <h5>이력서</h5>
+            </div>
+            <div className={'col-md-3 col-4 text-right'}>
+              <StyledButton wide>수정</StyledButton>
+            </div>
+          </div>
         </StyledHeaderDiv>
         <div style={{ marginTop: '100px' }}>
-          <div className="row justify-content-center">
+          <div
+            className="row justify-content-center"
+            style={{
+              border: '1px solid black',
+            }}
+          >
             <StyledLeftLayout className={'col-12 col-lg-2 text-left'}>
               <SideMenu />
             </StyledLeftLayout>
             <div
               className={'col-12 col-lg-10'}
-              style={{ paddingLeft: '60px', border: '1px solid black' }}
+              style={{
+                border: '1px solid black',
+              }}
             >
               <ResumeTitle>
                 기본 정보
@@ -88,8 +121,8 @@ export default function Resume(props) {
                 <div className={'col-12 col-md-4'}>
                   <ResumeImg>이미지 업로드</ResumeImg>
                 </div>
-                {/* 이름 */}
                 <div className={'col-12 col-md-4'}>
+                  {/* 이름 */}
                   <ResumeInputs name={'이름'} />
                   {/* 이메일 */}
                   <ResumeInputs name={'이메일'} />
@@ -105,7 +138,7 @@ export default function Resume(props) {
               </div>
               <div
                 style={{
-                  marginBottom: '20px',
+                  marginBottom: '30px',
                 }}
               >
                 <ResumeInputs wide name={'주소'} />
@@ -113,10 +146,22 @@ export default function Resume(props) {
               </div>
               <div
                 style={{
-                  marginBottom: '10px',
+                  marginBottom: '30px',
                 }}
               >
-                <ResumeTitle>학력</ResumeTitle>
+                <ResumeTitle>
+                  학력
+                  <Warning>
+                    <span
+                      style={{
+                        fontSize: '17px',
+                      }}
+                    >
+                      +
+                    </span>
+                    &nbsp;&nbsp;버튼을 누르면 추가할 수 있습니다.
+                  </Warning>
+                </ResumeTitle>
                 <EducationItems>
                   <MyEducation>고등학교</MyEducation>
                   <ResumeInputs name={'학교명'} />
@@ -130,25 +175,51 @@ export default function Resume(props) {
                   <ResumeInputs small name={'기간'} />
                 </EducationItems>
               </div>
-              <div style={{ border: '1px solid black' }}>
-                <ResumeTitle>자기소개</ResumeTitle>
-                {/* <ResumeTextArea*/}
-                {/*  id="content"*/}
-                {/*  cols="96"*/}
-                {/*  rows="3"*/}
-                {/*  onKeyDown={calc}*/}
-                {/*  onKeyUp={calc}*/}
-                {/*  onKeyPress={calc}*/}
-                {/* />*/}
-                {/* <div style={{ textAlign: 'right' }}>*/}
-                {/*  <TextAreaLength*/}
-                {/*    id="result"*/}
-                {/*    type="number"*/}
-                {/*    value="0"*/}
-                {/*    readOnly*/}
-                {/*  />*/}
-                {/* </div>*/}
-                <TextAreaCombine cols="96" rows="3"></TextAreaCombine>
+              <div
+                style={{
+                  marginBottom: '30px',
+                }}
+              >
+                <ResumeTitle>
+                  경력{' '}
+                  <Warning>
+                    <span
+                      style={{
+                        fontSize: '17px',
+                      }}
+                    >
+                      +
+                    </span>
+                    &nbsp;&nbsp;버튼을 누르면 추가할 수 있습니다.
+                  </Warning>
+                </ResumeTitle>
+                <CareerItems>
+                  <ResumeInputs name={'회사명'} />
+                  <ResumeInputs name={'직무'} />
+                  <ResumeInputs small name={'기간'} />
+                </CareerItems>
+                <CareerItems>
+                  <ResumeInputs name={'회사명'} />
+                  <ResumeInputs name={'직무'} />
+                  <ResumeInputs small name={'기간'} />
+                </CareerItems>
+              </div>
+              <div
+                style={{
+                  marginBottom: '10px',
+                }}
+              >
+                <ResumeTitle>
+                  자기소개
+                  <Warning>자유양식으로 500자 이내로 작성해주세요</Warning>
+                </ResumeTitle>
+                <TextAreaCombine cols="96" rows="10"></TextAreaCombine>
+              </div>
+              <div>
+                <ResumeTitle>
+                  Skill <Warning>자신있는 언어를 선택해주세요</Warning>
+                </ResumeTitle>
+                <Tags tagList={tags}>Language</Tags>
               </div>
             </div>
           </div>

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Modal from './Modal/Modal';
 import { MapDrop } from '../data/mapLink';
-// import { Spinner } from 'react-bootstrap';
 
 const NavDropBody = styled.div`
   position: absolute;
