@@ -1,5 +1,5 @@
 import { css } from 'styled-components/dist/styled-components.browser.esm';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Login from './Login';
 import SignUp from './SignUp';
@@ -14,9 +14,7 @@ const MyComponent = styled.div`
     top: 0;
     transform: translateX(0);
     border-radius: 0px;
-    overflow: hidden;
   }
-  overflow: hidden;
   border-radius: 5px;
   position: fixed;
   left: 50%;
@@ -96,6 +94,12 @@ export default function Modal(props) {
   const [login, setLogin] = useState(props.login);
   const [view, setView] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  });
   return (
     <>
       <MyComponent view={view}>
@@ -107,7 +111,7 @@ export default function Modal(props) {
             SIGN UP
           </GoTo>
         </Title>
-
+        {view && <Loading />}
         <div className="forms">
           {login ? (
             <Login setClose={props.setVisible} fade={login} setSns={setView} />
@@ -115,7 +119,6 @@ export default function Modal(props) {
             <SignUp setClose={props.setVisible} fade={login} />
           )}
         </div>
-        {view && <Loading />}
       </MyComponent>
     </>
   );

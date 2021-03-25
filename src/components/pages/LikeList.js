@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import SideMenu from '../components/SideMenu';
 import {
   StyledButton,
   StyledHeaderDiv,
@@ -8,6 +7,7 @@ import {
 } from '../components/Styled';
 import Tags from '../components/Tags';
 import Post from '../components/Post';
+import SideMenu from '../components/SideMenu';
 
 export default function LikeList(props) {
   const [tags] = useState([
@@ -47,22 +47,21 @@ export default function LikeList(props) {
 
   return (
     <>
-      <div className={'container'}>
+      <div className={'container'} style={{ marginTop: '100px' }}>
         <StyledHeaderDiv>
-          <h1>이력서</h1>
+          <h1>찜목록</h1>
           <StyledButton last bottom>
             수정
           </StyledButton>
         </StyledHeaderDiv>
-        {/* 레이아웃 구분선*/}
-        <div className={'row justify-content-center'}>
-          {/* 태그 레이아웃 */}
+        <div
+          className={'row justify-content-center'}
+          style={{ marginTop: '-30px' }}
+        >
           <StyledLeftLayout className={'col-12 col-lg-3 text-left'}>
-            <Tags tagList={tags}>filter</Tags>
+            <SideMenu />
           </StyledLeftLayout>
-          {/* 태그 end*/}
 
-          {/* 게시글*/}
           <div className={'col-12 col-lg-9'}>
             <div
               className={'text-right'}
@@ -70,12 +69,9 @@ export default function LikeList(props) {
                 position: 'relative',
                 height: '60px',
               }}
-            >
-              <TagBody tagType>조회순</TagBody>
-            </div>
+            ></div>
             {mapPost}
           </div>
-          {/* 게시글 end*/}
         </div>
       </div>
     </>
