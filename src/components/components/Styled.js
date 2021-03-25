@@ -128,6 +128,7 @@ export const StyledHeaderDivInside = styled.div`
   h1 {
     font-size: 20px;
   }
+
   ${(props) =>
     props.padding &&
     css`
@@ -138,9 +139,9 @@ export const StyledHeaderDivInside = styled.div`
     `}
 `;
 
-export const StyledHeaderDiv = ({ children, padding }) => (
+export const StyledHeaderDiv = ({ children, padding, center }) => (
   <>
-    <StyledHeaderDivInside padding={padding}>
+    <StyledHeaderDivInside padding={padding} center={center}>
       <div style={{ borderBottom: '1px solid #eee ', paddingBottom: '20px' }}>
         {children}
       </div>
@@ -442,7 +443,13 @@ export const MyImage = styled.img`
   border-radius: 50%;
   margin: 0 auto;
 `;
-
+export const CenterConatainer = styled.div`
+  min-width: 320px;
+  max-width: 544px;
+  border: 1px solid #d3d3d3;
+  border-radius: 15px;
+  margin-top: 100px;
+`;
 export const StyledArticle = styled.div`
   padding-left: 60px;
   @media (max-width: 992px) {

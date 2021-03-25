@@ -5,6 +5,7 @@ import Button from './Button';
 import Sns from './Sns';
 import InputLine from './InputLine';
 import { SIGN_UP_REQUEST } from '../../../reducers/user';
+import { MyLink } from '../Styled';
 
 const SignForm = styled.div`
   Button {
@@ -110,6 +111,7 @@ export default function SignUp(props) {
           <div>
             <Button type="submit" name="SING UP" />
           </div>
+          {/* <Button type="button" name="기업회원가입" />*/}
           <CanButton>
             <Button
               type="button"

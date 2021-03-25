@@ -7,6 +7,10 @@ const MyInput = styled.div`
   }
 
   input {
+    @media (max-width: 768px) {
+      height: 30px;
+      padding: 0;
+    }
     padding: 3px;
     border: none;
     border-bottom: 2px solid #d3d3d3;

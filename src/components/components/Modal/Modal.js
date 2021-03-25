@@ -8,15 +8,13 @@ import Loading from '../Notification/Loading';
 const MyComponent = styled.div`
   @media (max-width: 768px) {
     width: 100%;
-    height: 120%;
+    height: 100%;
     margin: 0;
     left: 0;
     top: 0;
     transform: translateX(0);
     border-radius: 0px;
-    overflow: hidden;
   }
-  overflow: hidden;
   border-radius: 5px;
   position: fixed;
   left: 50%;
@@ -36,10 +34,6 @@ const MyComponent = styled.div`
       css`
         visibility: hidden;
       `}
-  }
-
-  &::-webkit-scrollbar {
-    display: none;
   }
 `;
 
@@ -106,7 +100,6 @@ export default function Modal(props) {
       document.body.style.overflow = 'unset';
     };
   });
-
   return (
     <>
       <MyComponent view={view}>
@@ -118,7 +111,7 @@ export default function Modal(props) {
             SIGN UP
           </GoTo>
         </Title>
-
+        {view && <Loading />}
         <div className="forms">
           {login ? (
             <Login setClose={props.setVisible} fade={login} setSns={setView} />
@@ -126,7 +119,6 @@ export default function Modal(props) {
             <SignUp setClose={props.setVisible} fade={login} />
           )}
         </div>
-        {view && <Loading />}
       </MyComponent>
     </>
   );
