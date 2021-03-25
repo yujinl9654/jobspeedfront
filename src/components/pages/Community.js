@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../components/Banner';
 import Tags from '../components/Tags';
-import { StyledLeftLayout, TagBody } from '../components/Styled';
+import { StyledLeftLayout } from '../components/Styled';
 import Post from '../components/Post';
 
 export default function Community(props) {
@@ -25,6 +25,10 @@ export default function Community(props) {
     }
     return dummyArr;
   };
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   const [dummyPost] = useState(dummy);
 

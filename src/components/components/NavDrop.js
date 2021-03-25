@@ -52,7 +52,7 @@ const DropUl = styled.ul`
   margin: 0px;
 `;
 
-const Background = styled.div`
+export const Background = styled.div`
   position: fixed;
   left: 0;
   right: 0;

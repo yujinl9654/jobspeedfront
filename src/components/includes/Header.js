@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { v4 } from 'uuid';
 // import NavLink from '../components/NavLink';
-import NavDrop from '../components/NavDrop';
+import NavDrop, { Background } from '../components/NavDrop';
 import NavSearch from '../components/NavSearch';
 import NavMenu from '../components/NavMenu';
 import PopUp from '../components/Notification/PopUp';
 import MapLink from '../data/mapLink';
+import ModalAlert from '../components/Notification/ModalAlert';
 
 // 네비바스타일
 const NavBar = styled.div`
@@ -45,6 +46,7 @@ const PopUpBox = styled.div`
 
 export default function Header(props) {
   const [popArr, setPopArr] = useState([]);
+  const [popModal, setPopModal] = useState(false);
   const user = useSelector((state) => state.user);
   const ref = useRef(0);
   const mapPop = popArr.map((pop) => (
@@ -67,7 +69,8 @@ export default function Header(props) {
   };
 
   useEffect(() => {
-    if (user.signUpDone) addPop({ type: 'sign', id: v4() });
+    // if (user.signUpDone) addPop({ type: 'sign', id: v4() });
+    if (user.signUpDone) setPopModal(true);
   }, [user]);
 
   return (
@@ -86,6 +89,12 @@ export default function Header(props) {
           </NavDrop>
         </RightContainer>
         <PopUpBox>{mapPop}</PopUpBox>
+        {popModal && (
+          <>
+            <ModalAlert setPopModal={setPopModal}></ModalAlert>
+            <Background onClick={() => setPopModal(false)}></Background>
+          </>
+        )}
       </NavBar>
     </>
   );

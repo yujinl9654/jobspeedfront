@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Banner from '../components/Banner';
 import RecruitCard from '../components/RecruitCard';
@@ -11,6 +11,9 @@ const RecruitContent = styled.div`
 `;
 
 export default function Recruitment(props) {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   const [update, setUpdate] = useState(0);
   const [tags] = useState([
     { name: 'backEnd', id: 0, selected: false },

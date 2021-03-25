@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import {
   StyledButton,
@@ -50,6 +50,9 @@ const EducationItems = styled.div`
 `;
 
 export default function Resume(props) {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <form>
       <div className="container text-left">
