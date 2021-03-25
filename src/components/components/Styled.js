@@ -112,9 +112,9 @@ const StyledButtonInside = styled.div`
 // 헤더: 모바일 환경에선 보통 헤더이나 태블릿 pc 환경에서는 sticky 로 동작한다
 // fixed 로변경
 // Todo 텍스트 수직 중간
-export const StyledHeaderDiv = styled.div`
-  border-bottom: 1px solid #eee;
-  padding: 5px 30px 5px 0px;
+export const StyledHeaderDivInside = styled.div`
+  //border-bottom: 1px solid #eee;
+  padding: 40px 0px 5px 0px;
   background-color: white;
   z-index: 1;
   margin-bottom: 50px;
@@ -128,7 +128,25 @@ export const StyledHeaderDiv = styled.div`
   h1 {
     font-size: 20px;
   }
+  ${(props) =>
+    props.padding &&
+    css`
+      padding-left: 230px;
+      @media (max-width: 992px) {
+        padding-left: 0px;
+      }
+    `}
 `;
+
+export const StyledHeaderDiv = ({ children, padding }) => (
+  <>
+    <StyledHeaderDivInside padding={padding}>
+      <div style={{ borderBottom: '1px solid #eee ', paddingBottom: '20px' }}>
+        {children}
+      </div>
+    </StyledHeaderDivInside>
+  </>
+);
 
 export const StyledButton = ({
   children,
@@ -168,6 +186,7 @@ const TagBodyInside = styled.div`
   //tagType 일경우 드롭다운 박스 색이나옴
   color: #7c7c7c;
   background-color: ${(props) => (!props.tagType ? '#f5df4d' : 'white')};
+
   ${(props) =>
     props.grey &&
     css`
@@ -205,6 +224,11 @@ const TagBodyInside = styled.div`
     css`
       height: 25px;
       font-size: 13px;
+    `}
+  ${(props) =>
+    props.tagType &&
+    css`
+      display: flex;
     `}
 `;
 
@@ -261,13 +285,24 @@ export const TagBody = ({ sm, children, tagType, onClick, grey }) => (
 );
 
 // 왼쪽레이아웃 작아질경우 오른쪽 보더 선 삭제
-export const StyledLeftLayout = styled.div`
+const StyledLeftLayoutInside = styled.div`
   border-right: 1px solid #eee;
   //border-right: 1px solid #eee;
   @media (max-width: 992px) {
     border: none;
   }
+  ${(props) =>
+    props.borderNone &&
+    css`
+      border: none;
+    `}
 `;
+
+export const StyledLeftLayout = ({ borderNone, children, className }) => (
+  <StyledLeftLayoutInside borderNone={borderNone} className={className}>
+    {children}
+  </StyledLeftLayoutInside>
+);
 
 // Profile Styled
 export default function Styled(props) {
@@ -368,11 +403,13 @@ export const MyLink = styled(Link)`
 `;
 
 export const MySideMenu = styled.div`
-  margin-top: 50px;
+  position: relative;
+  top: -100px;
   width: 150px;
   border: 0.5px solid silver;
   border-radius: 10px;
   padding: 15px 15px;
+  z-index: 1;
 `;
 
 export const MyHr = styled.hr`

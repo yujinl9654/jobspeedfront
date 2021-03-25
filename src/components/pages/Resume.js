@@ -57,7 +57,7 @@ export default function Resume(props) {
   return (
     <form>
       <div className="container text-left">
-        <StyledHeaderDiv style={{ position: 'relative' }}>
+        <StyledHeaderDiv padding style={{ position: 'relative' }}>
           <hee1>이력서</hee1>
           <StyledButton last bottom>
             수정
