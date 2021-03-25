@@ -333,7 +333,7 @@ export const TextAreaCombine = ({ cols, rows }) => {
       <TextArea
         id="content"
         cols={cols}
-        row={rows}
+        rows={rows}
         onKeyPress={calc}
         onKeyDown={calc}
         onKeyUp={calc}

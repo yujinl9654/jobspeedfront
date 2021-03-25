@@ -49,6 +49,10 @@ const EducationItems = styled.div`
   padding-left: 30px;
 `;
 
+const CareerItems = styled.div`
+  padding-left: 30px;
+`;
+
 export default function Resume(props) {
   return (
     <form>
@@ -127,25 +131,21 @@ export default function Resume(props) {
                   <ResumeInputs small name={'기간'} />
                 </EducationItems>
               </div>
-              <div style={{ border: '1px solid black' }}>
+              <div
+                style={{
+                  marginBottom: '10px',
+                }}
+              >
+                <ResumeTitle>경력</ResumeTitle>
+                <CareerItems>
+                  <ResumeInputs name={'학교명'} />
+                  <ResumeInputs name={'문과/이과/예체능'} />
+                  <ResumeInputs small name={'기간'} />
+                </CareerItems>
+              </div>
+              <div>
                 <ResumeTitle>자기소개</ResumeTitle>
-                {/* <ResumeTextArea*/}
-                {/*  id="content"*/}
-                {/*  cols="96"*/}
-                {/*  rows="3"*/}
-                {/*  onKeyDown={calc}*/}
-                {/*  onKeyUp={calc}*/}
-                {/*  onKeyPress={calc}*/}
-                {/* />*/}
-                {/* <div style={{ textAlign: 'right' }}>*/}
-                {/*  <TextAreaLength*/}
-                {/*    id="result"*/}
-                {/*    type="number"*/}
-                {/*    value="0"*/}
-                {/*    readOnly*/}
-                {/*  />*/}
-                {/* </div>*/}
-                <TextAreaCombine cols="96" rows="3"></TextAreaCombine>
+                <TextAreaCombine cols="96" rows="10"></TextAreaCombine>
               </div>
             </div>
           </div>
