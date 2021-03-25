@@ -9,7 +9,7 @@ export default function SideMenu() {
       </MyButton>
       <MyHr />
       <MyButton>
-        <MyLink to={'./community'}>게시글</MyLink>
+        <MyLink to={'./community/'}>게시글</MyLink>
       </MyButton>
       <MyHr />
       <MyButton>

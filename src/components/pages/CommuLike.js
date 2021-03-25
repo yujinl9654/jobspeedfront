@@ -3,13 +3,11 @@ import {
   StyledButton,
   StyledHeaderDiv,
   StyledLeftLayout,
-  TagBody,
 } from '../components/Styled';
-import Tags from '../components/Tags';
 import Post from '../components/Post';
 import SideMenu from '../components/SideMenu';
 
-export default function LikeList(props) {
+export default function CommunityLike(props) {
   const [tags] = useState([
     { name: 'backEnd', id: 0, selected: false },
     { name: 'frontEnd', id: 1, selected: false },
@@ -47,30 +45,34 @@ export default function LikeList(props) {
 
   return (
     <>
-      <div className={'container'} style={{ marginTop: '100px' }}>
-        <StyledHeaderDiv>
-          <h1>찜목록</h1>
-          <StyledButton last bottom>
-            수정
-          </StyledButton>
-        </StyledHeaderDiv>
-        <div
-          className={'row justify-content-center'}
-          style={{ marginTop: '-30px' }}
-        >
-          <StyledLeftLayout className={'col-12 col-lg-3 text-left'}>
-            <SideMenu />
-          </StyledLeftLayout>
-
-          <div className={'col-12 col-lg-9'}>
+      <div className={'container text-left'}>
+        <StyledHeaderDiv padding>
+          <div className={'container row justify-content-end'}>
             <div
-              className={'text-right'}
-              style={{
-                position: 'relative',
-                height: '60px',
-              }}
-            ></div>
-            {mapPost}
+              className={'col-md-9 col-8'}
+              style={{ marginTop: '14px', paddingTop: '5px' }}
+            >
+              <h5>게시글 찜목록</h5>
+            </div>
+            <div className={'col-md-3 col-4 text-right'}>
+              <StyledButton wide>수정</StyledButton>
+            </div>
+          </div>
+        </StyledHeaderDiv>
+        <div style={{ marginTop: '100px' }}>
+          <div className="row justify-content-center">
+            <StyledLeftLayout
+              borderNone
+              className={'col-12 col-lg-2 text-left'}
+            >
+              <SideMenu />
+            </StyledLeftLayout>
+            <div
+              className={'col-12 col-lg-10'}
+              style={{ paddingLeft: '60px', paddingRight: '50px' }}
+            >
+              {mapPost}
+            </div>
           </div>
         </div>
       </div>

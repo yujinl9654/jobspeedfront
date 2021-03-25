@@ -13,7 +13,9 @@ import Community from './components/pages/Community';
 import PostDetail from './components/pages/PostDetail';
 import Profile from './components/pages/Profile';
 import Resume from './components/pages/Resume';
-import LikeList from './components/pages/LikeList';
+import RecruitLike from './components/pages/RecruitLike';
+import CommuLike from './components/pages/CommuLike';
+import MemberRegistration from './components/pages/MemberRegistration';
 
 const Container = styled.div`
   padding-bottom: 40px;
@@ -41,7 +43,9 @@ function App() {
           <Route exact path={'/community/post'} component={PostDetail} />
           <Route exact path={'/profile'} component={Profile} />
           <Route exact path={'/resume'} component={Resume} />
-          <Route exact path={'/likelist'} component={LikeList} />
+          <Route exact path={'/likelist/community'} component={CommuLike} />
+          <Route exact path={'/likelist/recruit'} component={RecruitLike} />
+          <Route exact path={'/registration'} component={MemberRegistration} />
         </Container>
         <Footer />
       </BrowserRouter>

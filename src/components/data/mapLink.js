@@ -11,6 +11,7 @@ const Links = [
 const DropLinks = [
   { title: 'Login', to: '/' },
   { title: 'Sign Up', to: '/' },
+  { title: 'Membership', to: '/registration' },
   { title: 'Profile', to: '/profile' },
 ];
 
