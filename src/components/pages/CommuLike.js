@@ -7,6 +7,7 @@ import {
 } from '../components/Styled';
 import Tags from '../components/Tags';
 import Post from '../components/Post';
+import SideMenu from '../components/SideMenu';
 
 export default function LikeList(props) {
   useEffect(() => {
@@ -49,35 +50,39 @@ export default function LikeList(props) {
 
   return (
     <>
-      <div className={'container'}>
-        <StyledHeaderDiv>
-          <h1>이력서</h1>
-          <StyledButton last bottom>
-            수정
-          </StyledButton>
-        </StyledHeaderDiv>
-        {/* 레이아웃 구분선*/}
-        <div className={'row justify-content-center'}>
-          {/* 태그 레이아웃 */}
-          <StyledLeftLayout className={'col-12 col-lg-3 text-left'}>
-            <Tags tagList={tags}>filter</Tags>
-          </StyledLeftLayout>
-          {/* 태그 end*/}
-
-          {/* 게시글*/}
-          <div className={'col-12 col-lg-9'}>
+      <div className={'container text-left'}>
+        <StyledHeaderDiv padding>
+          <div className={'container row justify-content-end'}>
             <div
-              className={'text-right'}
-              style={{
-                position: 'relative',
-                height: '60px',
-              }}
+              className={'col-md-9 col-8'}
+              style={{ marginTop: '14px', paddingTop: '5px' }}
             >
-              <TagBody tagType>조회순</TagBody>
+              <h5>게시글 찜목록</h5>
             </div>
-            {mapPost}
+            <div className={'col-md-3 col-4 text-right'}>
+              <StyledButton wide>수정</StyledButton>
+            </div>
           </div>
-          {/* 게시글 end*/}
+        </StyledHeaderDiv>
+        <div style={{ marginTop: '100px' }}>
+          <div className="row justify-content-center">
+            <StyledLeftLayout
+              borderNone
+              className={'col-12 col-lg-2 text-left'}
+            >
+              <SideMenu />
+            </StyledLeftLayout>
+            {/* 태그 end*/}
+
+            {/* 게시글*/}
+            <div
+              className={'col-12 col-lg-10'}
+              style={{ paddingLeft: '80px', paddingRight: '25px' }}
+            >
+              {mapPost}
+            </div>
+            {/* 게시글 end*/}
+          </div>
         </div>
       </div>
     </>

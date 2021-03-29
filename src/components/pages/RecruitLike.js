@@ -82,7 +82,7 @@ export default function CommunityLike(props) {
             </StyledLeftLayout>
             <div
               className={'col-12 col-lg-10'}
-              style={{ paddingLeft: '60px', paddingRight: '60px' }}
+              style={{ paddingLeft: '80px', paddingRight: '25px' }}
             >
               {/* {mapPost}*/}
               {dummyOut}

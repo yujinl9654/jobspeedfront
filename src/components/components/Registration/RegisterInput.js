@@ -11,7 +11,7 @@ export default function RegisterInput(props) {
         </ProfileTitles>
         <InputText
           type={props.type}
-          style={{ marginBottom: '15px', height: '25px' }}
+          style={{ marginBottom: '15px', height: '25px', paddingBottom: '2px' }}
         />
       </div>
     </>

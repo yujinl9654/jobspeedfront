@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { StyledButton, StyledHeaderDiv } from '../components/Styled';
+import ChatIcon from '../components/Chatting/ChatIcon';
 
 export default function RecruitmentDetail(props) {
   useEffect(() => {
@@ -67,6 +68,7 @@ export default function RecruitmentDetail(props) {
           </div>
           {/* 요약 end*/}
           {/* 채팅컴포넌트*/}
+          <ChatIcon />
           <div
             className={'col-lg-5 col-12'}
             style={{ padding: '15px 5px 0px' }}

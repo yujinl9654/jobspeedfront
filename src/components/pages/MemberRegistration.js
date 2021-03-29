@@ -5,7 +5,7 @@ import RegisterContents from '../components/Registration/RegisterContents';
 export default function MemberRegistration(props) {
   return (
     <>
-      <form>
+      <form style={{ padding: '0 10px' }}>
         <CenterConatainer className="container text-left">
           <div style={{ marginTop: '40px' }}>
             <div className="row justify-content-center">
